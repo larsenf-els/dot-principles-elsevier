@@ -47,7 +47,7 @@ The system walks up from the reviewed file to the git root, collecting `.princip
 
 ```bash
 # Clone the repo
-git clone https://github.com/flemming-n-larsen/.principles.git
+git clone https://github.com/code-principles/.principles.git
 
 # Install Claude Code slash commands
 ./install.sh claude
