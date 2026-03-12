@@ -30,66 +30,66 @@ The `principles/` directory is a **namespace container**. Each subdirectory is a
 ```
 principles/
   code/                  ← general catalog (~71 principles)
-    catalog.yaml         ← declares namespace: code, id-prefix: CODE
+    catalog.yaml         ← description only
     sec/
       sec-001.md
     api/
       api-011.md
     ...
   solid/                 ← SOLID principles (5 principles)
-    catalog.yaml         ← declares namespace: solid, id-prefix: SOLID
+    catalog.yaml         ← description only
     srp.md               → SOLID-SRP
     ocp.md               → SOLID-OCP
     lsp.md               → SOLID-LSP
     isp.md               → SOLID-ISP
     dip.md               → SOLID-DIP
   gof/                   ← Gang of Four (25 entries)
-    catalog.yaml         ← declares namespace: gof, id-prefix: GOF
+    catalog.yaml         ← description only
     strategy.md          → GOF-STRATEGY
     observer.md          → GOF-OBSERVER
     ...
   ddd/                   ← Domain-Driven Design (8 principles)
-    catalog.yaml         ← declares namespace: ddd, id-prefix: DDD
+    catalog.yaml         ← description only
     aggregate.md         → DDD-AGGREGATE
     repository.md        → DDD-REPOSITORY
     ...
   simple-design/         ← Kent Beck's 4 Rules (4 principles)
-    catalog.yaml         ← declares namespace: simple-design, id-prefix: SIMPLE-DESIGN
+    catalog.yaml         ← description only
     passes-tests.md      → SIMPLE-DESIGN-PASSES-TESTS
     ...
   clean-arch/            ← Clean Architecture (4 principles)
-    catalog.yaml         ← declares namespace: clean-arch, id-prefix: CLEAN-ARCH
+    catalog.yaml         ← description only
     dependency-rule.md   → CLEAN-ARCH-DEPENDENCY-RULE
     ...
   effective-java/        ← Effective Java (10 principles)
-    catalog.yaml         ← declares namespace: effective-java, id-prefix: EFFECTIVE-JAVA
+    catalog.yaml         ← description only
     static-factory.md    → EFFECTIVE-JAVA-STATIC-FACTORY
     ...
   code-smells/           ← Fowler code smells (9 principles)
-    catalog.yaml         ← declares namespace: code-smells, id-prefix: CODE-SMELLS
+    catalog.yaml         ← description only
     long-method.md       → CODE-SMELLS-LONG-METHOD
     feature-envy.md      → CODE-SMELLS-FEATURE-ENVY
     ...
   grasp/                 ← GRASP patterns (9 principles)
-    catalog.yaml         ← declares namespace: grasp, id-prefix: GRASP
+    catalog.yaml         ← description only
     information-expert.md → GRASP-INFORMATION-EXPERT
     low-coupling.md       → GRASP-LOW-COUPLING
     ...
   12factor/              ← Twelve-Factor App (12 principles)
-    catalog.yaml         ← declares namespace: 12factor, id-prefix: 12FACTOR
+    catalog.yaml         ← description only
     01-codebase.md       → 12FACTOR-01-CODEBASE
     02-dependencies.md   → 12FACTOR-02-DEPENDENCIES
     ...
   owasp/                 ← OWASP Top 10 (10 principles)
-    catalog.yaml         ← declares namespace: owasp, id-prefix: OWASP
+    catalog.yaml         ← description only
     a01.md               → OWASP-A01
     a02.md               → OWASP-A02
     ...
   corp/                  ← example: company-added namespace
-    catalog.yaml         ← declares namespace: corp, id-prefix: CORP
+    catalog.yaml         ← description only
     corp-0001.md
   arch/                  ← example: architecture principles
-    catalog.yaml         ← declares namespace: arch, id-prefix: ARCH
+    catalog.yaml         ← description only
     xx/
       yy/
         yy-01.md
@@ -97,21 +97,18 @@ principles/
 
 ### `catalog.yaml` Schema
 
-Each namespace root must have a `catalog.yaml`:
+Each namespace root must have a `catalog.yaml` with a single field:
 
 ```yaml
-namespace: code
-id-prefix: CODE
-description: "Software engineering principles — design, security, architecture, testing, and more"
+# principles/<namespace>/catalog.yaml
+description: "Human-readable description of this namespace"
 ```
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `namespace` | Yes | Directory name (lowercase) |
-| `id-prefix` | Yes | Uppercase prefix for all IDs in this namespace |
-| `description` | No | Human-readable description |
+| `description` | Yes | Human-readable description of the namespace |
 
-The system reads all `principles/*/catalog.yaml` files to route any given ID to its file.
+The namespace is the directory name. IDs are derived from file paths (see Section 3) — no explicit `namespace` or `id-prefix` fields are needed. The system discovers all `principles/*/catalog.yaml` files automatically.
 
 ---
 
@@ -413,8 +410,6 @@ To add a company-specific namespace alongside the shipped `code` catalog:
 
 2. **Create `principles/corp/catalog.yaml`:**
    ```yaml
-   namespace: corp
-   id-prefix: CORP
    description: "Acme Corp engineering standards"
    ```
 
@@ -430,7 +425,7 @@ To add a company-specific namespace alongside the shipped `code` catalog:
    CORP-INFRA-001
    ```
 
-The system discovers all `principles/*/catalog.yaml` files automatically to route IDs to their files.
+The system discovers all `principles/*/catalog.yaml` files automatically. The namespace is the directory name and IDs are derived from file paths.
 
 ---
 

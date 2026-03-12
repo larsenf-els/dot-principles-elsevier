@@ -1,3 +1,1 @@
-namespace: grasp
-id-prefix: GRASP
 description: "GRASP (General Responsibility Assignment Software Patterns) — nine patterns for assigning responsibilities to classes and objects"
