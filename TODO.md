@@ -1,0 +1,70 @@
+# TODO — Principle gaps to fill
+
+## Functional programming principles
+New namespace: `fp`
+
+- [ ] Pure functions — functions with no side effects and deterministic output
+- [ ] Referential transparency — expressions that can be replaced by their value without changing program behaviour
+- [ ] Immutability as design — prefer immutable data structures; make mutation explicit and localised
+- [ ] Function composition — build complex behaviour by composing small, single-purpose functions
+- [ ] Avoid shared mutable state — favour data transformation pipelines over stateful objects
+
+## Continuous delivery practices
+New namespace: `cd`
+
+- [ ] Trunk-based development — commit to the main branch frequently; avoid long-lived feature branches
+- [ ] Keep the build green — a failing build is the team's highest priority; nothing else ships until it passes
+- [ ] Deploy on every commit — the pipeline should be capable of releasing any green commit to production
+- [ ] Feature flags for continuous delivery — decouple deployment from release; hide incomplete work behind flags rather than branches
+- [ ] Fast feedback loops — optimise the pipeline so engineers know within minutes whether a change is safe
+- [ ] GitOps — infrastructure and application state is declared in git; an operator continuously reconciles actual state to match
+
+## Database / persistence design
+New namespace: `db`
+
+- [ ] Avoid N+1 queries — never issue a query per row of a result set; use joins, batch loads, or eager loading
+- [ ] Index for access patterns — design indexes based on the queries the application actually runs, not the schema shape
+- [ ] Normalise to third normal form by default — eliminate redundancy and update anomalies; denormalise only with a measured reason
+- [ ] Schema migrations are code — every schema change is version-controlled, reviewed, and applied through an automated pipeline
+- [ ] Separate read and write models where load demands it — CQRS: optimise query models independently of command models when they have diverging requirements
+- [ ] Outbox pattern — write events to a database outbox table in the same transaction as the domain change; relay them asynchronously to avoid dual-write inconsistency
+
+## OOP / object design principles
+Extend existing namespaces or new namespace: `oop`
+
+- [ ] Law of Demeter — a method should only call methods on its direct collaborators; never chain through intermediaries
+- [ ] Tell Don't Ask — tell objects what to do rather than asking for their state and deciding outside them
+
+## Architecture patterns
+Extend `arch` or new namespace: `arch-patterns`
+
+- [ ] Hexagonal Architecture (Ports & Adapters) — isolate domain logic behind ports; adapters implement ports for specific technologies. Distinct from Clean Architecture's dependency rule in its explicit port/adapter vocabulary
+- [ ] Saga pattern — coordinate distributed transactions across services using a sequence of local transactions with compensating actions on failure
+- [ ] Strangler Fig — incrementally replace a legacy system by routing traffic to a new implementation piece by piece, running both in parallel until the old system can be retired
+
+## Security principles
+Extend `infra` or new namespace: `sec-arch`
+
+- [ ] Threat modelling — systematically identify and rank threats against a system before implementation; use STRIDE or PASTA to structure the analysis
+- [ ] Zero trust — never grant implicit trust based on network location; every request must be authenticated, authorised, and encrypted regardless of origin
+- [ ] Supply chain security — verify the integrity of all dependencies, container base images, and build tools; generate and attest SBOMs; sign artifacts
+
+## Testing principles
+Extend `code/ts`
+
+- [ ] Test pyramid — maintain a deliberately unequal ratio of unit, integration, and end-to-end tests; more fast unit tests, fewer slow E2E tests
+- [ ] Consumer-driven contract testing — consumers define the contract they need from a provider; the provider's test suite verifies it is met (e.g. Pact)
+- [ ] Property-based testing — specify invariants and let a framework generate hundreds of inputs to find edge cases example-based tests miss
+
+## Observability methods
+Extend `code/ob`
+
+- [ ] USE method — for every infrastructure resource, track Utilisation, Saturation, and Errors; these three signals predict most resource-related failures
+- [ ] RED method — for every service, track Rate, Errors, and Duration; these three signals define the user-visible health of a service
+- [ ] Error budget — define acceptable unreliability as an SLO error budget; when it is exhausted, reliability work takes priority over features
+
+## API design
+Extend `code/api`
+
+- [ ] API versioning strategy — version APIs explicitly; define a policy for introducing breaking changes and supporting deprecated versions
+- [ ] gRPC / Protobuf design — define service contracts in `.proto` files; use field numbers for backward compatibility; prefer streaming for high-throughput flows
