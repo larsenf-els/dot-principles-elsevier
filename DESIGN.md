@@ -440,7 +440,7 @@ The system discovers all `principles/*/catalog.yaml` files automatically. The na
 - Namespace prefix: uppercase, short (2-6 chars) — `CODE`, `CORP`, `ARCH`
 - Category segment: 2-4 uppercase chars — `SD`, `API`, `SEC`, `AR`
 - Named files: the full filename is used verbatim as the final ID segment (e.g., `solid/srp.md` → `SOLID-SRP`, `code/api/standard-http-methods.md` → `CODE-API-STANDARD-HTTP-METHODS`, `owasp/01-broken-access-control.md` → `OWASP-01-BROKEN-ACCESS-CONTROL`). Numeric prefixes work the same way (e.g., `12factor/01-codebase.md` → `12FACTOR-01-CODEBASE`).
-- Prefer descriptive slugs over opaque numbers — `validate-input.md` is immediately clear; `sec-001.md` is not.
+- Prefer descriptive slugs to opaque numbers — `validate-input.md` is immediately clear; `sec-001.md` is not.
 - Avoid: special characters, spaces, mixed case
 
 ### Depth Recommendations

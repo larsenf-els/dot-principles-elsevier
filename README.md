@@ -31,15 +31,15 @@ The system walks up from the reviewed file to the git root, collecting `.princip
 
 ### Layer model
 
-| Layer | When | What |
-|-------|------|------|
-| **Layer 1 — Universal** | Always active | Non-negotiable principles (validate input, single responsibility, fail fast, etc.) |
-| **Layer 2 — Contextual** | Based on what you're building | API design, concurrency, data modeling, etc. |
-| **Layer 3 — Risk-elevated** | Based on risk signals | Security, performance, backward compatibility |
+| Layer                       | When                          | What                                                                               |
+|-----------------------------|-------------------------------|------------------------------------------------------------------------------------|
+| **Layer 1 — Universal**     | Always active                 | Non-negotiable principles (validate input, single responsibility, fail fast, etc.) |
+| **Layer 2 — Contextual**    | Based on what you're building | API design, concurrency, data modeling, etc.                                       |
+| **Layer 3 — Risk-elevated** | Based on risk signals         | Security, performance, backward compatibility                                      |
 
 ### Three commands
 
-- **`/scout`** — Analyses your project, detects language/framework/domain, and creates `.principles` files.
+- **`/scout`** — Analyzes your project, detects language/framework/domain, and creates `.principles` files.
 - **`/prime`** — Resolves your `.principles` hierarchy, reads full principle guidance, prepares your coding frame.
 - **`/audit`** — Resolves your `.principles` hierarchy, reads principle content, reviews code, and groups findings by severity (Critical / High / Medium / Low).
 
@@ -62,21 +62,21 @@ git clone https://github.com/flemming-n-larsen/.principles.git
 
 150+ principles across 13 categories:
 
-| ID Prefix | Category |
-|-----------|----------|
-| `CODE-SD-` | Software Design (SOLID, GoF, composition, simplicity) |
-| `CODE-SEC-` | Security (OWASP Top 10, input validation, secrets) |
-| `CODE-CS-` | Code Smells & Refactoring |
-| `CODE-API-` | API Design |
-| `CODE-CC-` | Concurrency |
-| `CODE-DM-` | Domain Modeling |
-| `CODE-AR-` | Architecture |
-| `CODE-RL-` | Reliability & Error Handling |
-| `CODE-PF-` | Performance |
-| `CODE-TS-` | Testing Strategy |
-| `CODE-OB-` | Observability & Operations |
-| `CODE-DX-` | Developer Experience |
-| `CODE-TP-` | Type & Pattern Safety |
+| ID Prefix   | Category                                              |
+|-------------|-------------------------------------------------------|
+| `CODE-SD-`  | Software Design (SOLID, GoF, composition, simplicity) |
+| `CODE-SEC-` | Security (OWASP Top 10, input validation, secrets)    |
+| `CODE-CS-`  | Code Smells & Refactoring                             |
+| `CODE-API-` | API Design                                            |
+| `CODE-CC-`  | Concurrency                                           |
+| `CODE-DM-`  | Domain Modeling                                       |
+| `CODE-AR-`  | Architecture                                          |
+| `CODE-RL-`  | Reliability & Error Handling                          |
+| `CODE-PF-`  | Performance                                           |
+| `CODE-TS-`  | Testing Strategy                                      |
+| `CODE-OB-`  | Observability & Operations                            |
+| `CODE-DX-`  | Developer Experience                                  |
+| `CODE-TP-`  | Type & Pattern Safety                                 |
 
 Shipped groups (e.g., `@spring-boot`, `@react`, `@microservices`, `@security-focused`) bundle related principles for common stacks. See [DESIGN.md](DESIGN.md#5-groups) for the full list.
 
@@ -118,3 +118,11 @@ Every contribution requires a clear principle description, at least one verifiab
 - **Scripts and tooling:** [MIT](https://opensource.org/licenses/MIT)
 - **How to apply this in practice:** see [LICENSE-INTERPRETATION.md](LICENSE-INTERPRETATION.md) (including `internal use` vs `distribution`, and what users/developers may do and must do)
 - **Ownership boundary:** see [Ownership and curation scope](LICENSE-INTERPRETATION.md#10-ownership-and-curation-scope)
+
+## Support
+
+If this project is useful to you, you can support ongoing maintenance and updates:
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/flemming.n.larsen)
+
+If the image does not load, use this link: [Buy me a coffee](https://buymeacoffee.com/flemming.n.larsen)
