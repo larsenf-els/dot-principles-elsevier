@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Flemming N. Larsen — https://github.com/code-principles/.principles
 set -euo pipefail
 
 # uninstall.sh — Remove code-principles assets from supported AI coding tools
