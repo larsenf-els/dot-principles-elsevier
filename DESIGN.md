@@ -403,7 +403,40 @@ Analyses a project directory and creates or updates `.principles` files.
 
 ---
 
-## 8. Adding a New Namespace
+## 8. Installer Targets
+
+`install.sh` deploys the three commands (`/scout`, `/prime`, `/audit`) to three AI tool families. Each target writes different files because each tool family has its own discovery mechanism.
+
+### Claude Code (`./install.sh claude`)
+
+Writes to `~/.claude/commands/<name>.md` (global, user-level).
+
+Claude Code discovers slash commands by scanning `~/.claude/commands/` for `.md` files. The file body is the full prompt. No frontmatter is required.
+
+### GitHub Copilot (`./install.sh copilot <dir>`)
+
+Writes two sets of files per command, because Copilot has two separate client families:
+
+| File | Location | Consumed by |
+|------|----------|-------------|
+| `SKILL.md` | `.github/skills/<name>/SKILL.md` | **Copilot CLI** (terminal) |
+| `<name>.prompt.md` | `.github/prompts/<name>.prompt.md` | **VS Code / JetBrains / Visual Studio** (IDEs) |
+
+**Skills** (`.github/skills/<name>/SKILL.md`) are the CLI mechanism. The Copilot CLI scans `.github/skills/` at startup, reads each `SKILL.md`, and exposes the skill as a `/skill-name` slash command. Skills require a YAML frontmatter with `name` and `description`; the `description` is also used by Copilot to decide when to invoke the skill automatically.
+
+**Prompt files** (`.github/prompts/<name>.prompt.md`) are the IDE mechanism. Copilot Chat in VS Code, JetBrains, and Visual Studio discovers `.prompt.md` files in `.github/prompts/` and exposes them as slash commands in the chat panel. They require at minimum a `description:` field in YAML frontmatter.
+
+Also writes `.github/copilot-instructions.md` with the Layer 1–3 principle summary. This file is consumed by all Copilot clients (CLI and IDEs) as always-on background context.
+
+### Cursor (`./install.sh cursor <dir>`)
+
+Writes to `.cursor/rules/code-principles.mdc`.
+
+Cursor discovers rules by scanning `.cursor/rules/` for `.mdc` files. The frontmatter `alwaysApply: true` makes the rule active in all contexts.
+
+---
+
+## 9. Adding a New Namespace
 
 To add a company-specific namespace alongside the shipped `code` catalog:
 
@@ -433,7 +466,7 @@ The system discovers all `principles/*/catalog.yaml` files automatically. The na
 
 ---
 
-## 9. ID Format Guidance
+## 10. ID Format Guidance
 
 ### Naming Conventions
 
@@ -461,7 +494,7 @@ Add a new category directory when:
 
 ---
 
-## 10. Contributing Principles
+## 11. Contributing Principles
 
 ### Requirements
 

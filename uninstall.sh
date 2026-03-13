@@ -4,7 +4,12 @@ set -euo pipefail
 # uninstall.sh — Remove code-principles assets from supported AI coding tools
 #
 # Usage:
-#   ./uninstall.sh [project]   # Remove Claude Code commands and project files
+#   ./uninstall.sh [project]   # Remove assets for all targets:
+#                              #   Claude Code: ~/.claude/commands/<name>.md
+#                              #   Copilot CLI: .github/skills/<name>/SKILL.md
+#                              #   Copilot IDE: .github/prompts/<name>.prompt.md
+#                              #               .github/copilot-instructions.md (code-principles block only)
+#                              #   Cursor:      .cursor/rules/code-principles.mdc
 #   ./uninstall.sh --help      # Show this help
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -93,6 +98,7 @@ uninstall_copilot() {
     local project_dir="$1"
     local target_file="$project_dir/.github/copilot-instructions.md"
     local prompts_dir="$project_dir/.github/prompts"
+    local skills_dir="$project_dir/.github/skills"
 
     echo -e "${BOLD}Removing GitHub Copilot instructions...${NC}"
 
@@ -125,10 +131,31 @@ uninstall_copilot() {
     fi
 
     echo ""
+    echo -e "${BOLD}Removing GitHub Copilot skills...${NC}"
+
+    local skill_count=0
+    local file
+    for file in "$CLAUDE_TARGETS_DIR/"*.md; do
+        if [ -f "$file" ]; then
+            local command_name
+            command_name="$(basename "$file" .md)"
+            local skill_dir="$skills_dir/$command_name"
+            if [ -d "$skill_dir" ]; then
+                rm -rf "$skill_dir"
+                skill_count=$((skill_count + 1))
+                echo -e "  ${GREEN}✓${NC} .github/skills/$command_name/"
+            fi
+        fi
+    done
+
+    if [ $skill_count -eq 0 ]; then
+        echo "  ${NEUTRAL} No Copilot skills found to remove."
+    fi
+
+    echo ""
     echo -e "${BOLD}Removing GitHub Copilot prompt commands...${NC}"
 
     local prompt_count=0
-    local file
     for file in "$CLAUDE_TARGETS_DIR/"*.md; do
         if [ -f "$file" ]; then
             local prompt_file="$prompts_dir/$(basename "$file" .md).prompt.md"
@@ -144,6 +171,7 @@ uninstall_copilot() {
         echo "  ${NEUTRAL} No Copilot prompt commands found to remove."
     fi
 
+    cleanup_dir_if_empty "$skills_dir"
     cleanup_dir_if_empty "$prompts_dir"
     cleanup_dir_if_empty "$project_dir/.github"
 }

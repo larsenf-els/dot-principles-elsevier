@@ -58,6 +58,13 @@ git clone https://github.com/code-principles/.principles.git
 #   /audit <file>  → after writing code
 ```
 
+For GitHub Copilot, run `./install.sh copilot <project-dir>`. This writes:
+
+- `.github/copilot-instructions.md` for clients that consume Copilot instructions, including Copilot CLI
+- `.github/prompts/*.prompt.md` for GitHub Copilot clients that support prompt-file slash commands
+
+The prompt files need YAML frontmatter to be discoverable. `install.sh copilot` now generates valid prompt files, but command visibility still depends on the Copilot client you use.
+
 ## Principle catalog
 
 150+ principles across 13 categories:
