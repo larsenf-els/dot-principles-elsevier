@@ -65,12 +65,12 @@ The `backend/` team gets Spring Boot + DDD focus. The `frontend/` team gets Reac
 
 ```mermaid
 flowchart LR
-    A["payments/.principles\nCODE-RL-IDEMPOTENCY"]
-    B["backend/.principles\n@spring-boot"]
-    C[".principles ⟵ root\n@microservices\n@security-focused"]
-    D["🔀 Merge\ninnermost wins"]
-    E["📚 Load full principle\ncontent from catalog"]
-    F["🤖 AI agent\nfocused & ready"]
+    A["payments/.principles<br>CODE-RL-IDEMPOTENCY"]
+    B["backend/.principles<br>@spring-boot"]
+    C[".principles (root)<br>@microservices<br>@security-focused"]
+    D["🔀 Merge<br>innermost wins"]
+    E["📚 Load full principle<br>content from catalog"]
+    F["🤖 AI agent<br>focused & ready"]
 
     A --> D
     B --> D
@@ -109,9 +109,9 @@ Principles are organized into three activation layers that reflect how universal
 
 ```mermaid
 flowchart TD
-    L1["🔵 Layer 1 — Universal\nAlways active on every file\nSOLID · DRY · KISS · fail-fast · input validation\nsingle responsibility · defence in depth"]
-    L2["🟡 Layer 2 — Contextual\nActivated by what you're building\nAPI design · DDD · concurrency · 12-Factor\nClean Architecture · event sourcing · CQRS"]
-    L3["🔴 Layer 3 — Risk-Elevated\nActivated by risk signals\nOWASP Top 10 · performance · backward compatibility\nidempotency · data integrity · secrets hygiene"]
+    L1["🔵 Layer 1 - Universal<br>Always active on every file<br>SOLID · DRY · KISS · fail-fast · input validation<br>single responsibility · defence in depth"]
+    L2["🟡 Layer 2 - Contextual<br>Activated by what you're building<br>API design · DDD · concurrency · 12-Factor<br>Clean Architecture · event sourcing · CQRS"]
+    L3["🔴 Layer 3 - Risk-Elevated<br>Activated by risk signals<br>OWASP Top 10 · performance · backward compatibility<br>idempotency · data integrity · secrets hygiene"]
 
     L1 --> L2
     L2 --> L3
@@ -129,10 +129,10 @@ Traditional code review is valuable. But it happens *after* the code is already 
 
 ```mermaid
 flowchart LR
-    S["🔭 /scout\nAnalyze project\nwrite .principles"]
-    P["⚡ /prime\nLoad principles\ninto coding frame"]
-    C["✍️ Write code\nwith the right\nmindset active"]
-    A["🔎 /audit\nReview against\nactive principles"]
+    S["🔭 /scout<br>Analyze project<br>write .principles"]
+    P["⚡ /prime<br>Load principles<br>into coding frame"]
+    C["✍️ Write code<br>with the right<br>mindset active"]
+    A["🔎 /audit<br>Review against<br>active principles"]
     F["🔧 Fix issues"]
     D["✅ Done"]
 
