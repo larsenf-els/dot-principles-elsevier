@@ -1,7 +1,131 @@
 # .principles — Consolidated Catalog
-# Generated from principle files. 187 principles across 13 namespaces.
+# Generated from principle files. 207 principles across 14 namespaces.
 # Each entry maps a current principle ID to lightweight metadata.
 # Full principle text lives in the principle markdown files under principles/.
+
+# =============================================================================
+# FP
+# =============================================================================
+
+FP-PURE-FUNCTIONS:
+  title: "Pure functions"
+  layer: 1
+  categories: [functional-programming, software-design, maintainability, testability]
+  applies_to: [all]
+
+FP-REFERENTIAL-TRANSPARENCY:
+  title: "Referential transparency"
+  layer: 1
+  categories: [functional-programming, software-design, maintainability]
+  applies_to: [all]
+
+FP-IMMUTABILITY:
+  title: "Immutability as design"
+  layer: 1
+  categories: [functional-programming, software-design, concurrency, reliability]
+  applies_to: [all]
+
+FP-AVOID-SHARED-MUTABLE-STATE:
+  title: "Avoid shared mutable state"
+  layer: 1
+  categories: [functional-programming, concurrency, reliability, software-design]
+  applies_to: [all]
+
+FP-FUNCTION-COMPOSITION:
+  title: "Function composition"
+  layer: 2
+  categories: [functional-programming, software-design, maintainability]
+  applies_to: [all]
+
+FP-HIGHER-ORDER-FUNCTIONS:
+  title: "Higher-order functions"
+  layer: 2
+  categories: [functional-programming, software-design, abstraction]
+  applies_to: [all]
+
+FP-ALGEBRAIC-DATA-TYPES:
+  title: "Algebraic data types (ADTs)"
+  layer: 2
+  categories: [functional-programming, type-safety, software-design]
+  applies_to: [all]
+
+FP-CURRYING:
+  title: "Currying and partial application"
+  layer: 2
+  categories: [functional-programming, software-design, abstraction]
+  applies_to: [all]
+
+FP-PATTERN-MATCHING:
+  title: "Pattern matching"
+  layer: 2
+  categories: [functional-programming, type-safety, software-design]
+  applies_to: [all]
+
+FP-FUNCTIONAL-CORE-IMPERATIVE-SHELL:
+  title: "Functional core, imperative shell"
+  layer: 2
+  categories: [functional-programming, software-design, testability, architecture]
+  applies_to: [all]
+
+FP-LAZY-EVALUATION:
+  title: "Lazy evaluation"
+  layer: 2
+  categories: [functional-programming, performance, software-design]
+  applies_to: [haskell, scala, clojure, python, javascript, typescript]
+
+FP-EQUATIONAL-REASONING:
+  title: "Equational reasoning"
+  layer: 2
+  categories: [functional-programming, correctness, software-design]
+  applies_to: [all]
+
+FP-OPTION-EITHER-TYPES:
+  title: "Model absence and errors with types"
+  layer: 2
+  categories: [functional-programming, type-safety, error-handling, reliability]
+  applies_to: [all]
+
+FP-RECURSION:
+  title: "Recursion as primary iteration"
+  layer: 2
+  categories: [functional-programming, software-design]
+  applies_to: [all]
+
+FP-TAIL-CALL-OPTIMISATION:
+  title: "Tail-call optimisation"
+  layer: 2
+  categories: [functional-programming, performance, reliability]
+  applies_to: [haskell, scala, erlang, elixir, f#, clojure, kotlin]
+
+FP-FUNCTOR-MONAD:
+  title: "Functor and monad abstractions"
+  layer: 2
+  categories: [functional-programming, abstraction, type-safety, error-handling]
+  applies_to: [all]
+
+FP-PERSISTENT-DATA-STRUCTURES:
+  title: "Persistent data structures"
+  layer: 2
+  categories: [functional-programming, performance, data-structures, concurrency]
+  applies_to: [all]
+
+FP-POINT-FREE-STYLE:
+  title: "Point-free style"
+  layer: 2
+  categories: [functional-programming, software-design, abstraction]
+  applies_to: [haskell, f#, scala, typescript, javascript, clojure, elm]
+
+FP-TOTALITY:
+  title: "Totality"
+  layer: 2
+  categories: [functional-programming, type-safety, reliability, correctness]
+  applies_to: [all]
+
+FP-MONOIDS-SEMIGROUPS:
+  title: "Monoids and semigroups"
+  layer: 2
+  categories: [functional-programming, abstraction, software-design]
+  applies_to: [all]
 
 # =============================================================================
 # 12FACTOR

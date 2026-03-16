@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- **`fp` namespace** — 20 functional programming principles covering the full FP spectrum:
+  - **Layer 1 (universal):** `FP-PURE-FUNCTIONS`, `FP-REFERENTIAL-TRANSPARENCY`, `FP-IMMUTABILITY`, `FP-AVOID-SHARED-MUTABLE-STATE`
+  - **Layer 2 (contextual):** `FP-FUNCTION-COMPOSITION`, `FP-HIGHER-ORDER-FUNCTIONS`, `FP-ALGEBRAIC-DATA-TYPES`, `FP-CURRYING`, `FP-PATTERN-MATCHING`, `FP-FUNCTIONAL-CORE-IMPERATIVE-SHELL`, `FP-LAZY-EVALUATION`, `FP-EQUATIONAL-REASONING`, `FP-OPTION-EITHER-TYPES`, `FP-RECURSION`, `FP-TAIL-CALL-OPTIMISATION`, `FP-FUNCTOR-MONAD`, `FP-PERSISTENT-DATA-STRUCTURES`, `FP-POINT-FREE-STYLE`, `FP-TOTALITY`, `FP-MONOIDS-SEMIGROUPS`
+- **`@fp` group** — `groups/fp.yaml` bundles all 20 FP principles for functional-first projects
+- **11 new language groups** — `@javascript`, `@swift`, `@ruby`, `@php`, `@scala`, `@cpp`, `@c`, `@dart`, `@elixir`, `@haskell`, `@fsharp`; FP principles included where the language has native/idiomatic support
+- **Pre-compiled context files** — `principles/fp/.context-prime.md`, `.context-audit.md`, `.context-inspect.md` for fast `/prime` and `/audit` loading
+- **Catalog updated** — `principles/catalog.yaml` now covers 207 principles across 14 namespaces
+
+---
+
 ## [v0.1.0] — 2026-03-15
 
 **Initial release.**

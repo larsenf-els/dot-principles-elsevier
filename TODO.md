@@ -1,14 +1,5 @@
 # 📋 TODO — Principle gaps to fill
 
-## 🔄 Functional programming principles
-New namespace: `fp`
-
-- [ ] Pure functions — functions with no side effects and deterministic output
-- [ ] Referential transparency — expressions that can be replaced by their value without changing program behaviour
-- [ ] Immutability as design — prefer immutable data structures; make mutation explicit and localised
-- [ ] Function composition — build complex behaviour by composing small, single-purpose functions
-- [ ] Avoid shared mutable state — favour data transformation pipelines over stateful objects
-
 ## 🚢 Continuous delivery practices
 New namespace: `cd`
 
