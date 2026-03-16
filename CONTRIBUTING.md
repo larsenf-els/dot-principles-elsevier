@@ -6,6 +6,8 @@
 
 ## Requirements
 
+Start with the [principle template](principles/TEMPLATE.md).
+
 Every new principle must have:
 
 - A clear principle description in your own words
@@ -16,7 +18,7 @@ Every new principle must have:
 
 ## Process
 
-1. Copy `principles/code/TEMPLATE.md` to the appropriate category directory
+1. Copy `principles/TEMPLATE.md` to the appropriate category directory
 2. Fill in all sections — see [DESIGN.md Section 4](DESIGN.md#-4-principle-file-schema) for the full schema
 3. Derive the ID from the file path — see [DESIGN.md Section 3](DESIGN.md#-3-id-derivation)
 4. Add the principle to relevant groups in `groups/`
