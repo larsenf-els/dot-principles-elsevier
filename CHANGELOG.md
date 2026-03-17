@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **24 new architecture and integration principles** — 15 in `arch` namespace (Hexagonal Architecture, Saga, Strangler Fig, Layered Architecture, Microkernel, Anti-Corruption Layer, BFF, Bulkhead, Service Layer, Unit of Work, MVC, API Gateway, Data Mapper, Active Record, Transaction Script); 4 DDD strategic patterns in `ddd` namespace (Context Map, Shared Kernel, Open Host Service, Published Language); 5 Enterprise Integration Patterns in new `eip` namespace (Correlation Identifier, Content-Based Router, Dead Letter Channel, Message Filter, Claim Check). `eip` catalog, context, and group files created. `groups/microservices.yaml` and `groups/ddd.yaml` updated.
+
 - **7 new observability principles** — extending `code/ob` namespace:
   - **`CODE-OB-USE-METHOD`** — for every infrastructure resource, measure Utilisation, Saturation, and Errors; a systematic checklist that predicts most resource-related failures (Gregg, *Systems Performance* 2nd ed., ISBN 978-0-13-682045-9)
   - **`CODE-OB-RED-METHOD`** — for every service, instrument Rate, Errors, and Duration as the minimum contract for user-visible health (Wilkie, GrafanaCon 2018; Sridharan, *Distributed Systems Observability*, ISBN 978-1-492-03364-9)
