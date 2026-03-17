@@ -1,5 +1,5 @@
 # .principles — Consolidated Catalog
-# Generated from principle files. 228 principles across 16 namespaces.
+# Generated from principle files. 235 principles across 16 namespaces.
 # Each entry maps a current principle ID to lightweight metadata.
 # Full principle text lives in the principle markdown files under principles/.
 
@@ -769,6 +769,48 @@ CODE-TS-TEST-INDEPENDENCE:
 
 CODE-TS-TEST-NAMING:
   title: "Name tests by the behavior they verify"
+  layer: 2
+  categories: [testing, quality]
+  applies_to: [all]
+
+CODE-TS-TEST-DATA-BUILDER:
+  title: "Build test fixtures with the Test Data Builder pattern"
+  layer: 2
+  categories: [testing, quality]
+  applies_to: [all]
+
+CODE-TS-HUMBLE-OBJECT:
+  title: "Extract logic from untestable shells into Humble Objects"
+  layer: 2
+  categories: [testing, quality, software-design]
+  applies_to: [all]
+
+CODE-TS-NO-TEST-LOGIC-IN-PRODUCTION:
+  title: "Never add test-specific branches to production code"
+  layer: 2
+  categories: [testing, quality, reliability]
+  applies_to: [all]
+
+CODE-TS-CHARACTERIZATION-TESTS:
+  title: "Write characterization tests before refactoring legacy code"
+  layer: 2
+  categories: [testing, quality, maintainability]
+  applies_to: [all]
+
+CODE-TS-TEST-PYRAMID:
+  title: "Maintain a deliberately unequal ratio of unit, integration, and E2E tests"
+  layer: 2
+  categories: [testing, quality]
+  applies_to: [all]
+
+CODE-TS-CONSUMER-DRIVEN-CONTRACTS:
+  title: "Let consumers define and verify the contract they need from a provider"
+  layer: 2
+  categories: [testing, quality, api-design]
+  applies_to: [all]
+
+CODE-TS-PROPERTY-BASED-TESTING:
+  title: "Specify invariants and let the framework generate inputs to find edge cases"
   layer: 2
   categories: [testing, quality]
   applies_to: [all]

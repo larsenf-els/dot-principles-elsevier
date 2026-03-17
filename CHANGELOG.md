@@ -12,6 +12,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **4 new testing principles** — extending `code/ts` namespace:
+  - **`CODE-TS-TEST-DATA-BUILDER`** — build test fixtures using the Builder pattern so tests express intent rather than wiring; changes to object construction stay in one place (Pryce & Freeman, *GOOS*, ISBN 978-0-321-50362-6)
+  - **`CODE-TS-HUMBLE-OBJECT`** — extract hard-to-test logic from framework/UI shells into plain, dependency-free classes that can be unit-tested without the framework (Meszaros, *xUnit Test Patterns*, ISBN 978-0-13-149505-0)
+  - **`CODE-TS-NO-TEST-LOGIC-IN-PRODUCTION`** — never add test-specific branches, env guards, or test framework imports to production code; use dependency injection and seams instead (Meszaros, *xUnit Test Patterns*; Feathers, *WELC*, ISBN 978-0-13-117705-5). Includes `## Inspection` section and grep patterns in `code/.context-inspect.md`
+  - **`CODE-TS-CHARACTERIZATION-TESTS`** — before refactoring legacy code, pin its current behaviour with tests so regressions are caught at the desk, not in production; `**Audit-scope:** limited` (Feathers, *WELC*, ISBN 978-0-13-117705-5)
+  - **`CODE-TS-TEST-PYRAMID`** — structure test suites as a pyramid: many unit tests, fewer integration tests, minimal E2E; push tests to the lowest tier that gives confidence (Cohn 2009; Fowler 2012; Humble & Farley 2010)
+  - **`CODE-TS-CONSUMER-DRIVEN-CONTRACTS`** — consumers record the exact interactions they depend on; providers verify all consumer contracts in CI before merging, catching breaking changes without shared environments (Fowler 2006; Pact Foundation; Richardson 2018)
+  - **`CODE-TS-PROPERTY-BASED-TESTING`** — specify invariants and let a framework (QuickCheck, Hypothesis, fast-check) generate hundreds of inputs to surface edge cases that hand-written examples miss (Claessen & Hughes 2000)
+  - `principles/catalog.yaml` updated: 235 principles across 16 namespaces
+
 - **`principles/AUDIT-SCOPE.md`** — central document explaining which principles are fully excluded or partially limited for `/audit`, with rationale for each
 - **`**Audit-scope:**` metadata field** — 8 principle files annotated:
   - Fully excluded (snapshot cannot detect violations): `CODE-CS-BOY-SCOUT`, `ARCH-CONWAYS-LAW`, `CODE-PF-PROFILE-FIRST`, `SEC-ARCH-THREAT-MODELLING`

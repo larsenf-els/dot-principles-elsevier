@@ -1,12 +1,5 @@
 # 📋 TODO — Principle gaps to fill
 
-## 2🧪 Testing principles
-Extend `code/ts`
-
-- [ ] Test pyramid — maintain a deliberately unequal ratio of unit, integration, and end-to-end tests; more fast unit tests, fewer slow E2E tests
-- [ ] Consumer-driven contract testing — consumers define the contract they need from a provider; the provider's test suite verifies it is met (e.g. Pact)
-- [ ] Property-based testing — specify invariants and let a framework generate hundreds of inputs to find edge cases example-based tests miss
-
 ## 📡 Observability methods
 Extend `code/ob`
 
