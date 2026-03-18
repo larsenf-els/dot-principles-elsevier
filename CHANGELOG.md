@@ -10,6 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ## [Unreleased]
 
+---
+
+## [v0.3.0] — 2026-03-18
+
+### Changed
+
+- **Artifact-type layer system** — `layers/artifact-types.yaml` classifies every reviewed file into one of 6 stacks (`code`, `docs`, `config`, `infra`, `pipeline`, `schema`), each with its own `layer-1-universal.md` and `layer-2-contexts.yaml` (plus `layer-3-risk-signals.yaml` for `code` and `infra`). A shared universal set of 6 principles (`SIMPLE-DESIGN-REVEALS-INTENTION`, `CODE-CS-DRY`, `CODE-CS-KISS`, `CODE-CS-YAGNI`, `CODE-DX-NAMING`, `ARCH-DECISION-RECORDS`) applies across all stacks; stack-specific layers add targeted principles on top. Type detection uses file extension, filename, and path-pattern signals, with `infra` evaluated before `config` to resolve ambiguous YAML files (e.g. `Chart.yaml`, `values.yaml`).
+
 ### Added
 
 - **11 new continuous delivery principles** in new `cd` namespace — `CD-TRUNK-BASED-DEVELOPMENT`, `CD-KEEP-BUILD-GREEN`, `CD-DEPLOY-ON-EVERY-COMMIT`, `CD-FEATURE-FLAGS`, `CD-FAST-FEEDBACK-LOOPS`, `CD-GITOPS`, `CD-BLUE-GREEN-DEPLOYMENT`, `CD-CANARY-RELEASE`, `CD-DEPLOYMENT-SMOKE-TESTS`, `CD-PIPELINE-AS-CODE`, `CD-BUILD-ONCE-DEPLOY-MANY`. 4 principles include `## Inspection` grep patterns (`CD-KEEP-BUILD-GREEN`, `CD-FEATURE-FLAGS`, `CD-PIPELINE-AS-CODE`, `CD-BUILD-ONCE-DEPLOY-MANY`). 4 principles are `Audit-scope: limited` (`CD-TRUNK-BASED-DEVELOPMENT`, `CD-DEPLOY-ON-EVERY-COMMIT`, `CD-FAST-FEEDBACK-LOOPS`, `CD-BLUE-GREEN-DEPLOYMENT`, `CD-CANARY-RELEASE`). New `groups/cd.yaml`, catalog, and context files created.
@@ -63,5 +71,6 @@ See [TODO.md](TODO.md) for the roadmap.
 
 ---
 
+[v0.3.0]: https://github.com/dot-principles/principles/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/dot-principles/principles/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/dot-principles/principles/releases/tag/v0.1.0
