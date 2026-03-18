@@ -1,8 +1,8 @@
 # .principles
 
-**Select the software engineering principles you want your AI coding agent to focus on.**
+**Select the engineering principles you want your AI agent to apply — for code, docs, infrastructure, configuration, schemas, and pipelines.**
 
-A curated catalog of software engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI code generation and review.
+A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
 > See [DISCLAIMER.md](DISCLAIMER.md) — this is a proof of concept. Groups are opinionated, gaps exist, and adjustments are expected.
 
@@ -12,7 +12,7 @@ A curated catalog of software engineering principles, organized into a `.princip
 
 > *"The AI already knows everything. The question is: does it know what **you** care about?"*
 
-In 2026, AI coding agents are genuinely impressive. Ask one to review your code and it will draw on a vast body of established software engineering knowledge:
+In 2026, AI agents are genuinely impressive. Ask one to review your code and it will draw on a vast body of established software engineering knowledge:
 
 - 🏗️ **Design** — SOLID, Gang of Four (Strategy, Observer, Factory, Decorator…), GRASP, DRY, KISS, YAGNI, Clean Code, Kent Beck's 4 Rules of Simple Design
 - 🏛️ **Architecture** — Clean Architecture, Hexagonal / Ports & Adapters, DDD (Aggregates, Bounded Contexts, Repositories, Anti-Corruption Layers), CQRS, Event Sourcing, Microservices patterns, 12-Factor App
@@ -32,7 +32,7 @@ When an AI agent opens your file and starts writing or reviewing code — it doe
 
 Without that context, the AI picks reasonable defaults. But *reasonable defaults are not your architecture*.
 
-**`.principles` is the bridge between what the AI knows and what it should focus on.** It doesn't teach the AI — it gives it your *intent*.
+**`.principles` is the bridge between what the AI knows and what it should focus on.** It doesn't teach the AI — it gives it your *intent*. And this applies not just to source code, but to any artifact type treated as code: docs, infrastructure, configuration, schemas, pipelines.
 
 ---
 
@@ -238,11 +238,11 @@ AI agents are already technically capable of producing correct, working code. Th
 
 ## 🧠 Philosophy
 
-`.principles` does **not** teach the AI anything. Modern AI coding agents already know SOLID, OWASP, DDD, and the rest. The point is to **focus and trigger** that knowledge — to give the AI context about *which* principles matter for *this* codebase, alongside the other AI instructions it receives (AGENTS.md, CLAUDE.md, `.github/copilot-instructions.md`, etc.).
+`.principles` does **not** teach the AI anything. Modern AI agents already know SOLID, OWASP, DDD, and the rest. The point is to **focus and trigger** that knowledge — to give the AI context about *which* principles matter for *this* codebase, alongside the other AI instructions it receives (AGENTS.md, CLAUDE.md, `.github/copilot-instructions.md`, etc.).
 
 Think of it as: the AI instructions tell the agent *how to behave*; `.principles` tells it *which engineering lens to apply*.
 
-While `.principles` is currently focused on coding principles, it is not limited to code. Anything that follows the "X as Code" approach — documentation, infrastructure definitions, configuration — is plain text in version control, and therefore available for principle-driven review and auditing.
+`.principles` is built for the **"X as Code"** world. Modern projects treat far more than source code as version-controlled plain text: *docs as code* (READMEs, architecture docs, ADRs), *infrastructure as code* (Terraform, Helm, Dockerfiles), *configuration as code* (application settings, environment definitions), *pipeline as code* (GitHub Actions, Jenkinsfile), *schema as code* (Protobuf, OpenAPI, GraphQL). Each of these artifact types has its own engineering principles, and `.principles` applies the right ones automatically — the system ships with dedicated principle stacks for all six artifact types.
 
 ## ⚙️ How it works
 
@@ -320,7 +320,7 @@ See [INSTALL.md](INSTALL.md) for full platform instructions (Linux, macOS, Windo
 
 ## 📚 Principle catalog
 
-150+ principles across 13 categories:
+150+ principles in the CODE namespace across 13 categories (SOLID, GoF, DDD, GRASP, OWASP, 12-Factor, and more ship in their own namespaces — see [DESIGN.md](DESIGN.md#-2-catalog-structure) for the full catalog):
 
 | ID Prefix   | Category                                              |
 |-------------|-------------------------------------------------------|

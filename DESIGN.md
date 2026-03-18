@@ -6,7 +6,7 @@ This document describes the full architecture of the `.principles` hierarchy sys
 
 ## 🗺️ 1. Overview
 
-**What it is:** A portable, project-local configuration system that tells AI coding agents which software engineering principles apply to your codebase — similar in spirit to `.gitignore`, but for coding guidance.
+**What it is:** A portable, project-local configuration system that tells AI agents which engineering principles apply to your project — whether the file being worked on is source code, documentation, infrastructure, configuration, a schema, or a pipeline. Similar in spirit to `.gitignore`, but for engineering guidance.
 
 **Philosophy:** `.principles` does not teach the AI anything — the AI already knows SOLID, OWASP, DDD, and the rest. It *focuses and triggers* that knowledge: giving the AI context about which principles matter for this codebase, alongside other AI instructions (AGENTS.md, CLAUDE.md, `.github/copilot-instructions.md`). The AI instructions tell the agent how to behave; `.principles` tells it which engineering lens to apply.
 
@@ -24,7 +24,9 @@ This document describes the full architecture of the `.principles` hierarchy sys
 4. The AI resolves a hierarchy of `.principles` files (innermost overrides outermost) and reads the full principle content before coding or reviewing
 5. The artifact type of the file being reviewed is detected (code, docs, config, infra, schema, pipeline) and the matching principle stack from `layers/<type>/` is loaded
 
-**Plain-Text-as-Code:** This repo is a **Plain-Text-as-Code** system. Every artefact is plain text in version control — diffable, composable, portable, and natively readable by both humans and AI tools. Principle files are Markdown, group files are YAML, and the catalog is YAML. No binary formats, no generated code, no lock-in.
+**"X as Code":** `.principles` is built for the "X as Code" world — *docs as code*, *infrastructure as code*, *configuration as code*, *pipeline as code*, *schema as code*. All of these are plain text in version control, and all of them benefit from principled review. The system ships with dedicated artifact stacks for each type (see Section 3).
+
+**Plain-Text-as-Code:** This repo is itself a **[Plain-Text-as-Code](https://github.com/Plain-Text-as-Code)** system. Every artefact is plain text in version control — diffable, composable, portable, and natively readable by both humans and AI tools. Principle files are Markdown, group files are YAML, and the catalog is YAML. No binary formats, no generated code, no lock-in.
 
 ---
 
