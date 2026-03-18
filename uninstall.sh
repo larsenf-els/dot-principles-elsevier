@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Flemming N. Larsen — https://github.com/code-principles/.principles
+# Copyright (c) 2026 Flemming N. Larsen — https://github.com/code-principles/principles
 set -euo pipefail
 
-# uninstall.sh — Remove code-principles assets from supported AI coding tools
+# uninstall.sh — Remove .principles assets from supported AI coding tools
 #
 # Usage:
 #   ./uninstall.sh             # Remove global assets:
 #                              #   Claude Code: ~/.claude/commands/<name>.md
-#                              #   Copilot:     ~/.copilot/copilot-instructions.md (code-principles block only)
+#                              #   Copilot:     ~/.copilot/copilot-instructions.md (.principles block only)
 #   ./uninstall.sh <project>   # Remove local assets from <project>:
 #                              #   Claude Code: <project>/.claude/commands/<name>.md
 #                              #   Copilot CLI: .github/skills/<name>/SKILL.md
 #                              #   Copilot IDE: .github/prompts/<name>.prompt.md
-#                              #               .github/copilot-instructions.md (code-principles block only)
-#                              #   Cursor:      .cursor/rules/code-principles.mdc
+#                              #               .github/copilot-instructions.md (.principles block only)
+#                              #   Cursor:      .cursor/rules/principles.mdc
 #   ./uninstall.sh --help      # Show this help
 
 # Convert a Windows-style path (C:\... or C:/...) to a path the current bash understands.
@@ -126,7 +126,7 @@ require_project_dir() {
 
 print_header() {
     qecho ""
-    qecho "${BOLD}code-principles uninstaller${NC}"
+    qecho "${BOLD}.principles uninstaller${NC}"
     qecho "───────────────────────────"
 }
 
@@ -135,7 +135,7 @@ show_usage() {
     echo ""
     echo "Usage: $0 [project-dir]"
     echo ""
-    echo "Removes code-principles assets for Claude Code, GitHub Copilot, and Cursor."
+    echo "Removes .principles assets for Claude Code, GitHub Copilot, and Cursor."
     echo ""
     echo "  (no arg)            Remove global assets (~/.claude/commands/, ~/.copilot/)"
     echo "  <dir>               Remove local assets from <dir>/.claude/, .github/, .cursor/"
@@ -229,13 +229,13 @@ uninstall_copilot_local() {
 
         awk '
             BEGIN { in_block=0; removed=0 }
-            /^<!-- code-principles: begin -->$/ { in_block=1; removed=1; next }
-            /^<!-- code-principles: end -->$/   { if (in_block) { in_block=0; next } }
+            /^<!-- .principles: begin -->$/ { in_block=1; removed=1; next }
+            /^<!-- .principles: end -->$/   { if (in_block) { in_block=0; next } }
             !in_block { print }
             END { exit removed ? 0 : 1 }
         ' "$target_file" > "$temp_file" || {
             rm -f "$temp_file"
-            qecho "  ${NEUTRAL} No code-principles Copilot instructions found to remove."
+            qecho "  ${NEUTRAL} No .principles Copilot instructions found to remove."
             temp_file=""
         }
 
@@ -246,7 +246,7 @@ uninstall_copilot_local() {
 
             if grep -q '[^[:space:]]' "$temp_file"; then
                 mv "$temp_file" "$target_file"
-                qecho "  ${GREEN}✓${NC} .github/copilot-instructions.md (removed code-principles block)"
+                qecho "  ${GREEN}✓${NC} .github/copilot-instructions.md (removed .principles block)"
             else
                 rm -f "$temp_file" "$target_file"
                 qecho "  ${GREEN}✓${NC} .github/copilot-instructions.md"
@@ -315,13 +315,13 @@ uninstall_copilot_global() {
 
     awk '
         BEGIN { in_block=0; removed=0 }
-        /^<!-- code-principles: begin -->$/ { in_block=1; removed=1; next }
-        /^<!-- code-principles: end -->$/   { if (in_block) { in_block=0; next } }
+        /^<!-- .principles: begin -->$/ { in_block=1; removed=1; next }
+        /^<!-- .principles: end -->$/   { if (in_block) { in_block=0; next } }
         !in_block { print }
         END { exit removed ? 0 : 1 }
     ' "$target_file" > "$temp_file" || {
         rm -f "$temp_file"
-        qecho "  ${NEUTRAL} No code-principles block found in global Copilot instructions."
+        qecho "  ${NEUTRAL} No .principles block found in global Copilot instructions."
         return
     }
 
@@ -330,7 +330,7 @@ uninstall_copilot_global() {
 
     if grep -q '[^[:space:]]' "$temp_file"; then
         mv "$temp_file" "$target_file"
-        qecho "  ${GREEN}✓${NC} ~/.copilot/copilot-instructions.md (removed code-principles block)"
+        qecho "  ${GREEN}✓${NC} ~/.copilot/copilot-instructions.md (removed .principles block)"
     else
         rm -f "$temp_file" "$target_file"
         qecho "  ${GREEN}✓${NC} ~/.copilot/copilot-instructions.md"
@@ -352,7 +352,7 @@ uninstall_cursor() {
         return 0
     fi
 
-    local target_file="$project_dir/.cursor/rules/code-principles.mdc"
+    local target_file="$project_dir/.cursor/rules/principles.mdc"
 
     qecho "${BOLD}Removing Cursor rules...${NC}"
 
@@ -362,7 +362,7 @@ uninstall_cursor() {
     fi
 
     rm "$target_file"
-    qecho "  ${GREEN}✓${NC} .cursor/rules/code-principles.mdc"
+    qecho "  ${GREEN}✓${NC} .cursor/rules/principles.mdc"
 
     cleanup_dir_if_empty "$project_dir/.cursor/rules"
     cleanup_dir_if_empty "$project_dir/.cursor"

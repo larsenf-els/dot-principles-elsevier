@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Flemming N. Larsen — https://github.com/code-principles/.principles
+# Copyright (c) 2026 Flemming N. Larsen — https://github.com/code-principles/principles
 set -euo pipefail
 
-# install.sh — Deploy code-principles to AI coding tools
+# install.sh — Deploy .principles to AI coding tools
 #
 # Usage:
 #   ./install.sh claude              # Install Claude Code slash commands globally (~/.claude/commands/)
@@ -14,7 +14,7 @@ set -euo pipefail
 #                                    #   .github/skills/<name>/SKILL.md   (Copilot CLI slash commands)
 #                                    #   .github/prompts/<name>.prompt.md (VS Code / JetBrains / Visual Studio)
 #   ./install.sh cursor              # (not applicable — configure via Cursor > Settings > General > Rules for AI)
-#   ./install.sh cursor <dir>        # Generate Cursor rules (<dir>/.cursor/rules/code-principles.mdc)
+#   ./install.sh cursor <dir>        # Generate Cursor rules (<dir>/.cursor/rules/principles.mdc)
 #   ./install.sh all                 # Global: install claude + copilot (cursor: message)
 #   ./install.sh all <dir>           # Local: install all tools in <dir>
 #   ./install.sh --list              # Show what's installed
@@ -94,7 +94,7 @@ fi
 
 print_header() {
     echo ""
-    echo -e "${BOLD}code-principles installer${NC}"
+    echo -e "${BOLD}.principles installer${NC}"
     echo "─────────────────────────"
 }
 
@@ -110,7 +110,7 @@ copilot_prompt_description() {
             echo "Review code against the active principles and group findings by severity (Experimental)"
             ;;
         *)
-            echo "Run the $1 code-principles workflow (Experimental)"
+            echo "Run the $1 .principles workflow (Experimental)"
             ;;
     esac
 }
@@ -127,7 +127,7 @@ copilot_skill_description() {
             echo "Resolve the .principles hierarchy, load principle content, review code, and group findings by severity (Critical/High/Medium/Low). Use this skill when asked to audit or review code against principles."
             ;;
         *)
-            echo "Run the $1 code-principles workflow."
+            echo "Run the $1 .principles workflow."
             ;;
     esac
 }
@@ -267,21 +267,21 @@ install_copilot_local() {
     # Build the new block in a temp file
     local block_file
     block_file="$(mktemp)"
-    echo "<!-- code-principles: begin -->" > "$block_file"
+    echo "<!-- .principles: begin -->" > "$block_file"
     write_principles_body "$block_file"
-    echo "<!-- code-principles: end -->" >> "$block_file"
+    echo "<!-- .principles: end -->" >> "$block_file"
 
     if [ ! -f "$target_file" ] || [ ! -s "$target_file" ]; then
         # New or empty file: create with just the block
         cp "$block_file" "$target_file"
-    elif grep -q "^<!-- code-principles: begin -->$" "$target_file"; then
+    elif grep -q "^<!-- .principles: begin -->$" "$target_file"; then
         # Existing block found: replace it in-place
         local result_file
         result_file="$(mktemp)"
         awk '
             BEGIN { in_block=0 }
-            /^<!-- code-principles: begin -->$/ { in_block=1; next }
-            /^<!-- code-principles: end -->$/ { if (in_block) { in_block=0; next } }
+            /^<!-- .principles: begin -->$/ { in_block=1; next }
+            /^<!-- .principles: end -->$/ { if (in_block) { in_block=0; next } }
             !in_block { print }
         ' "$target_file" > "$result_file"
         # Trim trailing blank lines, then append the new block
@@ -347,19 +347,19 @@ install_copilot_global() {
     # Build the new block in a temp file
     local block_file
     block_file="$(mktemp)"
-    echo "<!-- code-principles: begin -->" > "$block_file"
+    echo "<!-- .principles: begin -->" > "$block_file"
     write_principles_body "$block_file"
-    echo "<!-- code-principles: end -->" >> "$block_file"
+    echo "<!-- .principles: end -->" >> "$block_file"
 
     if [ ! -f "$target_file" ] || [ ! -s "$target_file" ]; then
         cp "$block_file" "$target_file"
-    elif grep -q "^<!-- code-principles: begin -->$" "$target_file"; then
+    elif grep -q "^<!-- .principles: begin -->$" "$target_file"; then
         local result_file
         result_file="$(mktemp)"
         awk '
             BEGIN { in_block=0 }
-            /^<!-- code-principles: begin -->$/ { in_block=1; next }
-            /^<!-- code-principles: end -->$/ { if (in_block) { in_block=0; next } }
+            /^<!-- .principles: begin -->$/ { in_block=1; next }
+            /^<!-- .principles: end -->$/ { if (in_block) { in_block=0; next } }
             !in_block { print }
         ' "$target_file" > "$result_file"
         awk '{lines[NR]=$0; if(/[^[:space:]]/) last=NR} END{for(i=1;i<=last;i++) print lines[i]}' \
@@ -403,7 +403,7 @@ install_cursor() {
     local target_dir="$project_dir/.cursor/rules"
     mkdir -p "$target_dir"
 
-    local target_file="$target_dir/code-principles.mdc"
+    local target_file="$target_dir/.principles.mdc"
 
     cat > "$target_file" << 'CURSOR_FRONTMATTER'
 ---
@@ -421,7 +421,7 @@ CURSOR_FRONTMATTER
 }
 
 list_installed() {
-    echo -e "${BOLD}Installed code-principles:${NC}"
+    echo -e "${BOLD}Installed .principles:${NC}"
     echo ""
 
     echo "Claude Code commands (global: ~/.claude/commands/):"
@@ -438,7 +438,7 @@ list_installed() {
 
     echo ""
     echo "Copilot instructions (global: ~/.copilot/copilot-instructions.md):"
-    if [ -f "$EFFECTIVE_HOME/.copilot/copilot-instructions.md" ] && grep -q "^<!-- code-principles: begin -->$" "$EFFECTIVE_HOME/.copilot/copilot-instructions.md" 2>/dev/null; then
+    if [ -f "$EFFECTIVE_HOME/.copilot/copilot-instructions.md" ] && grep -q "^<!-- .principles: begin -->$" "$EFFECTIVE_HOME/.copilot/copilot-instructions.md" 2>/dev/null; then
         echo -e "  ${GREEN}✓${NC} ~/.copilot/copilot-instructions.md"
     else
         echo "  (none)"
@@ -456,7 +456,7 @@ show_usage() {
     echo "  copilot             Install Copilot instructions globally (~/.copilot/copilot-instructions.md)"
     echo "  copilot <dir>       Generate Copilot assets in <dir>/.github/"
     echo "  cursor              (not applicable — configure via Cursor > Settings > General > Rules for AI)"
-    echo "  cursor <dir>        Generate .cursor/rules/code-principles.mdc in <dir>"
+    echo "  cursor <dir>        Generate .cursor/rules/principles.mdc in <dir>"
     echo "  all                 Global: install claude + copilot (cursor: message)"
     echo "  all <dir>           Local: install all tools in <dir>"
     echo ""
