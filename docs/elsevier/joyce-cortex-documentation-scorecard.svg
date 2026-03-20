@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="866" viewBox="0 0 700 866">
+<style>
+  text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+</style>
+<rect width="700" height="866" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="20" y="38" font-size="20" font-weight="700" fill="#1e293b">cortex-documentation</text>
+<text x="660" y="34" text-anchor="end" font-size="10" fill="#94a3b8">2026-03-20</text>
+<line x1="20" y1="56" x2="660" y2="56" stroke="#e2e8f0" stroke-width="1"/>
+<text x="20" y="72" font-size="15" font-weight="700" fill="#1e293b">Architecture Compliance</text>
+<rect x="220" y="56" width="50" height="22" rx="4" fill="#22c55e"/>
+<text x="245" y="71" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">PASS</text>
+<text x="660" y="72" text-anchor="end" font-size="14" font-family="monospace" font-weight="700" fill="#1e293b">100/100</text>
+<rect x="20" y="82" width="640" height="8" rx="4" fill="#e2e8f0"/>
+<rect x="20" y="82" width="640" height="8" rx="4" fill="#22c55e"/>
+<circle cx="26" cy="106" r="6" fill="#22c55e"/>
+<text x="26" y="110" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="112" font-size="11" font-weight="600" fill="#1e293b">A1</text>
+<rect x="70" y="101" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="87" y="112.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="114" y="112" font-size="11" fill="#475569">README.md exists and is non-empty</text>
+<text x="660" y="112" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">25/25</text>
+<circle cx="26" cy="128" r="6" fill="#22c55e"/>
+<text x="26" y="132" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="134" font-size="11" font-weight="600" fill="#1e293b">A2</text>
+<rect x="70" y="123" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="87" y="134.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="114" y="134" font-size="11" fill="#475569">CONTRIBUTING.md exists and is non-empty</text>
+<text x="660" y="134" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">25/25</text>
+<circle cx="26" cy="150" r="6" fill="#22c55e"/>
+<text x="26" y="154" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="156" font-size="11" font-weight="600" fill="#1e293b">B1</text>
+<rect x="70" y="145" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="87" y="156.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="114" y="156" font-size="11" fill="#475569">mkdocs.yml exists and is non-empty</text>
+<text x="660" y="156" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">20/20</text>
+<circle cx="26" cy="172" r="6" fill="#22c55e"/>
+<text x="26" y="176" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="178" font-size="11" font-weight="600" fill="#1e293b">B2</text>
+<rect x="70" y="167" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="87" y="178.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="114" y="178" font-size="11" fill="#475569">mkdocs-techdocs-core plugin configured</text>
+<text x="660" y="178" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">25/25</text>
+<circle cx="26" cy="194" r="6" fill="#22c55e"/>
+<text x="26" y="198" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="200" font-size="11" font-weight="600" fill="#1e293b">C1</text>
+<rect x="70" y="189" width="47" height="16" rx="3" fill="#f59e0b" opacity="0.15"/>
+<text x="93.5" y="200.5" text-anchor="middle" font-size="9" font-weight="600" fill="#f59e0b">SHOULD</text>
+<text x="127" y="200" font-size="11" fill="#475569">catalog-info.yaml exists</text>
+<text x="660" y="200" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">5/5</text>
+<line x1="20" y1="220" x2="660" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+<text x="20" y="236" font-size="15" font-weight="700" fill="#1e293b">AI Readiness</text>
+<rect x="140" y="220" width="87.5" height="22" rx="4" fill="#f59e0b"/>
+<text x="183.75" y="235" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">AI-USABLE</text>
+<text x="660" y="236" text-anchor="end" font-size="14" font-family="monospace" font-weight="700" fill="#1e293b">78.8/100</text>
+<rect x="20" y="246" width="640" height="8" rx="4" fill="#e2e8f0"/>
+<rect x="20" y="246" width="504.31999999999994" height="8" rx="4" fill="#f59e0b"/>
+<text x="20" y="276" font-size="10" fill="#475569">⚠️ Minor issues - AI can work but may misinterpret some sections</text>
+<circle cx="26" cy="290" r="6" fill="#ef4444"/>
+<text x="26" y="294" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="40" y="296" font-size="11" font-weight="600" fill="#1e293b">P8</text>
+<text x="70" y="296" font-size="11" fill="#475569">AGENTS.md Present and Populated</text>
+<text x="660" y="296" text-anchor="end" font-size="11" fill="#ef4444">FAIL</text>
+<text x="40" y="314" font-size="9" fill="#94a3b8">AGENTS.md missing required sections (project description, permitted actions, prohibited actions)</text>
+<text x="20" y="334" font-size="11" font-weight="600" fill="#1e293b">Per-check file pass rates (108 files)</text>
+<circle cx="36" cy="348" r="6" fill="#ef4444"/>
+<text x="36" y="352" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="50" y="354" font-size="11" font-weight="600" fill="#1e293b">P1</text>
+<text x="80" y="354" font-size="11" fill="#475569">Heading Hierarchy</text>
+<text x="660" y="354" text-anchor="end" font-size="11" font-family="monospace" fill="#f59e0b">96/108 (89%)</text>
+<circle cx="36" cy="368" r="6" fill="#ef4444"/>
+<text x="36" y="372" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="50" y="374" font-size="11" font-weight="600" fill="#1e293b">P2</text>
+<text x="80" y="374" font-size="11" fill="#475569">Fenced Code Blocks with Language Specifiers</text>
+<text x="660" y="374" text-anchor="end" font-size="11" font-family="monospace" fill="#f59e0b">71/108 (66%)</text>
+<circle cx="36" cy="388" r="6" fill="#ef4444"/>
+<text x="36" y="392" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="50" y="394" font-size="11" font-weight="600" fill="#1e293b">P3</text>
+<text x="80" y="394" font-size="11" fill="#475569">No Markup Artifacts</text>
+<text x="660" y="394" text-anchor="end" font-size="11" font-family="monospace" fill="#f59e0b">74/108 (69%)</text>
+<circle cx="36" cy="408" r="6" fill="#ef4444"/>
+<text x="36" y="412" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="50" y="414" font-size="11" font-weight="600" fill="#1e293b">P4</text>
+<text x="80" y="414" font-size="11" fill="#475569">Tables Have Header Rows</text>
+<text x="660" y="414" text-anchor="end" font-size="11" font-family="monospace" fill="#f59e0b">80/108 (74%)</text>
+<circle cx="36" cy="428" r="6" fill="#ef4444"/>
+<text x="36" y="432" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="50" y="434" font-size="11" font-weight="600" fill="#1e293b">P5</text>
+<text x="80" y="434" font-size="11" fill="#475569">Markdown Link Syntax</text>
+<text x="660" y="434" text-anchor="end" font-size="11" font-family="monospace" fill="#f59e0b">81/108 (75%)</text>
+<circle cx="36" cy="448" r="6" fill="#22c55e"/>
+<text x="36" y="452" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="50" y="454" font-size="11" font-weight="600" fill="#1e293b">P6</text>
+<text x="80" y="454" font-size="11" fill="#475569">Images Have Descriptive Alt Text</text>
+<text x="660" y="454" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">108/108 (100%)</text>
+<circle cx="36" cy="468" r="6" fill="#ef4444"/>
+<text x="36" y="472" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="50" y="474" font-size="11" font-weight="600" fill="#1e293b">P7</text>
+<text x="80" y="474" font-size="11" fill="#475569">Cross-References to Related Documents</text>
+<text x="660" y="474" text-anchor="end" font-size="11" font-family="monospace" fill="#f59e0b">80/108 (74%)</text>
+<text x="20" y="498" font-size="10" fill="#94a3b8">Fix prompts available: 167</text>
+<line x1="20" y1="512" x2="660" y2="512" stroke="#e2e8f0" stroke-width="1"/>
+<text x="20" y="528" font-size="15" font-weight="700" fill="#1e293b">Docs Content Quality</text>
+<rect x="210" y="512" width="125" height="22" rx="4" fill="#ef4444"/>
+<text x="272.5" y="527" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">NON-CONFORMANT</text>
+<text x="660" y="528" text-anchor="end" font-size="14" font-family="monospace" font-weight="700" fill="#1e293b">82/100</text>
+<rect x="20" y="538" width="640" height="8" rx="4" fill="#e2e8f0"/>
+<rect x="20" y="538" width="524.8" height="8" rx="4" fill="#f59e0b"/>
+<circle cx="26" cy="562" r="6" fill="#22c55e"/>
+<text x="26" y="566" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="568" font-size="11" font-weight="600" fill="#1e293b">RH1</text>
+<rect x="75" y="557" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="568.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="568" font-size="11" fill="#475569">README H1 heading present</text>
+<text x="660" y="568" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">10/10</text>
+<circle cx="26" cy="584" r="6" fill="#22c55e"/>
+<text x="26" y="588" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="590" font-size="11" font-weight="600" fill="#1e293b">RH2</text>
+<rect x="75" y="579" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="590.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="590" font-size="11" fill="#475569">README content exists below H1 before first H2</text>
+<text x="660" y="590" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">20/20</text>
+<circle cx="26" cy="606" r="6" fill="#22c55e"/>
+<text x="26" y="610" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="612" font-size="11" font-weight="600" fill="#1e293b">RH3</text>
+<rect x="75" y="601" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="612.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="612" font-size="11" fill="#475569">README Contributing section present with CONTRIBUTING.md link</text>
+<text x="660" y="612" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">15/15</text>
+<circle cx="26" cy="628" r="6" fill="#22c55e"/>
+<text x="26" y="632" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="634" font-size="11" font-weight="600" fill="#1e293b">RH4</text>
+<rect x="75" y="623" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="634.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="634" font-size="11" fill="#475569">README help or support section present</text>
+<text x="660" y="634" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">10/10</text>
+<circle cx="26" cy="650" r="6" fill="#ef4444"/>
+<text x="26" y="654" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="40" y="656" font-size="11" font-weight="600" fill="#1e293b">RH5</text>
+<rect x="75" y="645" width="47" height="16" rx="3" fill="#f59e0b" opacity="0.15"/>
+<text x="98.5" y="656.5" text-anchor="middle" font-size="9" font-weight="600" fill="#f59e0b">SHOULD</text>
+<text x="132" y="656" font-size="11" fill="#475569">README licence section present</text>
+<text x="660" y="656" text-anchor="end" font-size="11" font-family="monospace" fill="#ef4444">0/5</text>
+<circle cx="26" cy="672" r="6" fill="#22c55e"/>
+<text x="26" y="676" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="678" font-size="11" font-weight="600" fill="#1e293b">CH1</text>
+<rect x="75" y="667" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="678.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="678" font-size="11" fill="#475569">CONTRIBUTING H1 heading present</text>
+<text x="660" y="678" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">10/10</text>
+<circle cx="26" cy="694" r="6" fill="#ef4444"/>
+<text x="26" y="698" text-anchor="middle" font-size="10" fill="#fff">✗</text>
+<text x="40" y="700" font-size="11" font-weight="600" fill="#1e293b">CH2</text>
+<rect x="75" y="689" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="700.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="700" font-size="11" fill="#475569">CONTRIBUTING branch section present</text>
+<text x="660" y="700" text-anchor="end" font-size="11" font-family="monospace" fill="#ef4444">0/15</text>
+<circle cx="26" cy="716" r="6" fill="#22c55e"/>
+<text x="26" y="720" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="722" font-size="11" font-weight="600" fill="#1e293b">CH3</text>
+<rect x="75" y="711" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="722.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="722" font-size="11" fill="#475569">CONTRIBUTING pull request section present</text>
+<text x="660" y="722" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">15/15</text>
+<circle cx="26" cy="738" r="6" fill="#22c55e"/>
+<text x="26" y="742" text-anchor="middle" font-size="10" fill="#fff">✓</text>
+<text x="40" y="744" font-size="11" font-weight="600" fill="#1e293b">CH4</text>
+<rect x="75" y="733" width="34" height="16" rx="3" fill="#ef4444" opacity="0.15"/>
+<text x="92" y="744.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">MUST</text>
+<text x="119" y="744" font-size="11" fill="#475569">CONTRIBUTING issue or bug reporting section present</text>
+<text x="660" y="744" text-anchor="end" font-size="11" font-family="monospace" fill="#22c55e">10/10</text>
+<text x="30" y="770" font-size="10" fill="#ef4444">✗ CH2: CONTRIBUTING.md is missing a branch section heading.</text>
+<text x="30" y="786" font-size="10" fill="#f59e0b">⚠ RH5: README.md is missing a licence section heading.</text>
+<text x="20" y="806" font-size="10" fill="#94a3b8">Fix prompts available: 2</text>
+<line x1="20" y1="828" x2="660" y2="828" stroke="#e2e8f0" stroke-width="1"/>
+<text x="20" y="852" font-size="10" fill="#94a3b8">Arch: 100/100  |  AI: 78.8/100  |  Docs: 82/100  |  Generated by agent-ready-docs</text>
+</svg>

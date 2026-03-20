@@ -1588,3 +1588,25 @@ CD-BUILD-ONCE-DEPLOY-MANY:
   layer: 1
   categories: [devops, continuous-delivery, deployment, reliability]
   applies_to: [all]
+
+# =============================================================================
+# DOC-CORTEX
+# =============================================================================
+
+DOC-CORTEX-ARCH-COMPLIANCE:
+  title: "Architecture compliance — documentation repository satisfies Elsevier Cortex structural requirements"
+  layer: 2
+  categories: [documentation, architecture, compliance]
+  applies_to: [docs]
+
+DOC-CORTEX-AI-READINESS:
+  title: "AI readiness — documentation is structured for reliable AI consumption"
+  layer: 2
+  categories: [documentation, ai-readiness, accessibility]
+  applies_to: [docs]
+
+DOC-CORTEX-CONTENT-QUALITY:
+  title: "Content quality — README and CONTRIBUTING follow Elsevier Cortex content conventions"
+  layer: 2
+  categories: [documentation, readability, contribution]
+  applies_to: [docs]

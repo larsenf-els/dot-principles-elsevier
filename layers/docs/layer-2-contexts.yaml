@@ -76,3 +76,18 @@ reference:
   activate:
     - DOC-ACCURACY
     - DOC-EXAMPLES
+
+cortex-documentation:
+  description: "Documentation published to Elsevier Cortex — TechDocs sites registered in the Backstage software catalog"
+  signals:
+    - "mkdocs.yml"
+    - "techdocs-core"
+    - "catalog-info.yaml"
+    - "AGENTS.md"
+    - "Cortex"
+    - "TechDocs"
+    - "Backstage"
+  activate:
+    - DOC-CORTEX-ARCH-COMPLIANCE
+    - DOC-CORTEX-AI-READINESS
+    - DOC-CORTEX-CONTENT-QUALITY
