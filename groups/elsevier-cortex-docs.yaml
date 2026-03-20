@@ -1,0 +1,7 @@
+name: elsevier-cortex-docs
+description: "Elsevier Cortex documentation standard — structural compliance, AI readiness, and content quality checks for TechDocs repositories published to the Backstage software catalog"
+
+principles:
+  - DOC-CORTEX-ARCH-COMPLIANCE
+  - DOC-CORTEX-AI-READINESS
+  - DOC-CORTEX-CONTENT-QUALITY
