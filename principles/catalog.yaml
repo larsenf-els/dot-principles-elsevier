@@ -1,5 +1,5 @@
 # .principles — Consolidated Catalog
-# Generated from principle files. 258 principles across 17 namespaces.
+# Generated from principle files. 262 principles across 17 namespaces.
 # Each entry maps a current principle ID to lightweight metadata.
 # Full principle text lives in the principle markdown files under principles/.
 
@@ -1718,3 +1718,31 @@ CONFIG-MINIMAL-SURFACE:
   layer: 2
   categories: [configuration, security, maintainability]
   applies_to: [config]
+
+# =============================================================================
+# SCHEMA
+# =============================================================================
+
+SCHEMA-SELF-DESCRIBING:
+  title: "Make schemas self-describing"
+  layer: 1
+  categories: [documentation, api-design]
+  applies_to: [schema]
+
+SCHEMA-FIELD-OPTIONALITY:
+  title: "New fields must be optional; never add required fields to published schemas"
+  layer: 1
+  categories: [schema-design, api-design, reliability]
+  applies_to: [schema]
+
+SCHEMA-NO-POLYMORPHIC-BLOBS:
+  title: "Do not use untyped blobs that bypass schema validation"
+  layer: 1
+  categories: [schema-design, type-safety, maintainability]
+  applies_to: [schema]
+
+SCHEMA-ENUM-EVOLUTION:
+  title: "Enums must be safe to extend; consumers must handle unknown values"
+  layer: 1
+  categories: [schema-design, reliability, api-design]
+  applies_to: [schema]

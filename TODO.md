@@ -25,13 +25,13 @@ Gap analysis performed 2026-03-22. Criteria: established published source, code-
 - [x] `sec-arch/psychological-acceptability` (`Audit-scope: limited`)
 - [x] `sec-arch/open-design` (with inspection)
 
-### 3. Schema namespace is skeletal (1 principle)
+### 3. ~~Schema namespace is skeletal (1 principle)~~ DONE
 
-`schema/` has only `self-describing`. Other schema concerns (backward-compat, schema-evolution) live in `code/api/` and `code/rl/` but are mapped via layers. Missing dedicated schema principles:
+`schema/` expanded from 1 to 4 principles. Added `field-optionality`, `no-polymorphic-blobs`, `enum-evolution` (all layer 1). Context files, inspect file, layer files, and catalog updated. Also added missing `SCHEMA-SELF-DESCRIBING` entry to `catalog.yaml` and added `avro` context to `layer-2-contexts.yaml`.
 
-- [ ] `schema/field-optionality` — New fields must be optional with sensible defaults; required fields cannot be added to published schemas without breaking consumers. Source: Protobuf style guide, Avro spec. Auditable: `required` on new fields in schema diffs, missing `default` values.
-- [ ] `schema/no-polymorphic-blobs` — Avoid untyped `any`/`object`/`bytes` fields that bypass schema validation. Auditable: `google.protobuf.Any`, `additionalProperties: true`, `type: object` without properties in OpenAPI.
-- [ ] `schema/enum-evolution` — Enums must be safe to extend; consumers must handle unknown values gracefully. Source: Protobuf language guide, Avro spec. Auditable: closed enums without `UNRECOGNIZED`/`UNKNOWN` value.
+- [x] `schema/field-optionality` (with inspection)
+- [x] `schema/no-polymorphic-blobs` (with inspection)
+- [x] `schema/enum-evolution` (with inspection)
 
 ### 4. Container / Dockerfile best practices
 
@@ -99,7 +99,7 @@ Even when a principle exists in the catalog, it may not activate for certain pro
 - [x] `security-focused.yaml` — Saltzer & Schroeder principles added
 - [ ] Pipeline principles — No `pipeline.yaml` group exists; consider creating one
 - [ ] Container/infra principles — Review `infra`-related groups for container-specific inclusions
-- [ ] Schema principles — No `schema.yaml` group exists; the schema layer handles activation, but explicit group would help for `.principles` files targeting schema-heavy repos
+- [ ] Schema principles — No `schema.yaml` group exists; the schema layer handles activation, but explicit group would help for `.principles` files targeting schema-heavy repos. Layer-2 contexts now activate schema principles for OpenAPI, Protobuf, GraphQL, Avro, and SQL contexts.
 
 ---
 
