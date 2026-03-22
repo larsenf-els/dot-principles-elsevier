@@ -55,14 +55,17 @@ Gap analysis performed 2026-03-22. Criteria: established published source, code-
 - [x] `code-smells/mutable-data` — Data that can be changed from multiple places in hard-to-trace ways. (2nd ed addition)
 - [x] `code-smells/loops` — Imperative loops that should be replaced with pipeline operations. (2nd ed addition, `Audit-scope: limited`)
 
-### 6. Missing EIP patterns (Hohpe & Woolf, ISBN 978-0321200686)
+### 6. ~~Missing EIP patterns~~ DONE
 
-5 of ~65 EIP patterns are covered. The most code-auditable missing ones:
+`eip/` expanded from 5 to 12 principles. All 4 TODO patterns added; 3 additional auditable patterns added beyond the TODO list. `idempotent-consumer` included — differentiated from `CODE-RL-IDEMPOTENCY` by focusing on the consumer-side dedup-store implementation. Source: Hohpe & Woolf, *Enterprise Integration Patterns* (ISBN 978-0321200686). Context files, group, and catalog updated (EIP section added to catalog — was previously missing entirely).
 
-- [ ] `eip/aggregator` — Combine related messages into a single composite message. Auditable: manual accumulation patterns, missing timeout/completion conditions in aggregation code.
-- [ ] `eip/splitter` — Decompose a composite message into individual messages. Auditable: manual iteration-and-publish patterns that should use a splitter abstraction.
-- [ ] `eip/wire-tap` — Insert a monitoring point that copies messages for inspection without altering flow. Auditable: inline logging/debugging interception that modifies the message or blocks the flow.
-- [ ] `eip/idempotent-consumer` — Ensure a message receiver handles duplicate deliveries safely. Overlaps with `CODE-RL-IDEMPOTENCY` — assess redundancy before adding. Auditable: missing dedup checks in message handlers.
+- [x] `eip/aggregator` — Combine related messages into a composite message; explicit completion condition and timeout required.
+- [x] `eip/splitter` — Decompose a composite message into individual messages with correlation tracking.
+- [x] `eip/wire-tap` — Passive monitoring copy of messages to secondary channel without affecting primary flow.
+- [x] `eip/idempotent-consumer` — Consumer-side dedup store to safely discard duplicate at-least-once deliveries.
+- [x] `eip/message-translator` — Dedicated boundary component translating between external and internal message formats. (extended)
+- [x] `eip/content-enricher` — Augment messages with additional data at a dedicated pipeline stage. (extended)
+- [x] `eip/return-address` — Request message carries the reply channel address for dynamic async request-reply routing. (extended)
 
 ### 7. Error handling principles
 

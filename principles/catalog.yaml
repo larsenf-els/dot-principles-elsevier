@@ -1094,6 +1094,82 @@ DDD-VALUE-OBJECT:
   applies_to: [all]
 
 # =============================================================================
+# EIP
+# =============================================================================
+
+EIP-AGGREGATOR:
+  title: "Aggregator"
+  layer: 2
+  categories: [integration, messaging, reliability]
+  applies_to: [all]
+
+EIP-CLAIM-CHECK:
+  title: "Claim Check"
+  layer: 2
+  categories: [integration, messaging, performance]
+  applies_to: [all]
+
+EIP-CONTENT-BASED-ROUTER:
+  title: "Content-Based Router"
+  layer: 2
+  categories: [integration, messaging]
+  applies_to: [all]
+
+EIP-CONTENT-ENRICHER:
+  title: "Content Enricher"
+  layer: 2
+  categories: [integration, messaging, maintainability]
+  applies_to: [all]
+
+EIP-CORRELATION-IDENTIFIER:
+  title: "Correlation Identifier"
+  layer: 2
+  categories: [integration, observability, messaging]
+  applies_to: [all]
+
+EIP-DEAD-LETTER-CHANNEL:
+  title: "Dead Letter Channel"
+  layer: 2
+  categories: [integration, messaging, reliability]
+  applies_to: [all]
+
+EIP-IDEMPOTENT-CONSUMER:
+  title: "Idempotent Consumer"
+  layer: 2
+  categories: [integration, messaging, reliability]
+  applies_to: [all]
+
+EIP-MESSAGE-FILTER:
+  title: "Message Filter"
+  layer: 2
+  categories: [integration, messaging]
+  applies_to: [all]
+
+EIP-MESSAGE-TRANSLATOR:
+  title: "Message Translator"
+  layer: 2
+  categories: [integration, messaging, maintainability]
+  applies_to: [all]
+
+EIP-RETURN-ADDRESS:
+  title: "Return Address"
+  layer: 2
+  categories: [integration, messaging]
+  applies_to: [all]
+
+EIP-SPLITTER:
+  title: "Splitter"
+  layer: 2
+  categories: [integration, messaging]
+  applies_to: [all]
+
+EIP-WIRE-TAP:
+  title: "Wire Tap"
+  layer: 2
+  categories: [integration, messaging, observability]
+  applies_to: [all]
+
+# =============================================================================
 # EFFECTIVE-JAVA
 # =============================================================================
 
