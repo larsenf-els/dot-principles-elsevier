@@ -1,4 +1,4 @@
-# Changelog
+cre# Changelog
 
 All notable changes to `.principles` will be documented in this file.
 
@@ -9,6 +9,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ---
 
 ## [Unreleased]
+
+---
+
+## [v0.3.1] — 2026-03-22
+
+### Added
+
+- **Version metadata in command frontmatter** — `/audit`, `/prime`, and `/scout` source files now carry `version`, `description`, `argument-hint`, and `authors` fields in YAML frontmatter, stamped at install time from `VERSION`.
+
+### Fixed
+
+- **Copilot CLI global skills management** — `install.sh` and `uninstall.sh` now correctly create, update, and remove `~/.copilot/skills/<name>/SKILL.md` entries for global Copilot CLI installations.
 
 ---
 
@@ -71,6 +83,7 @@ See [TODO.md](TODO.md) for the roadmap.
 
 ---
 
+[v0.3.1]: https://github.com/dot-principles/principles/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/dot-principles/principles/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/dot-principles/principles/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/dot-principles/principles/releases/tag/v0.1.0

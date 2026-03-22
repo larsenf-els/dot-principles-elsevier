@@ -236,7 +236,7 @@ install_claude() {
     echo "Available commands:"
     echo "  /scout  — Detect project profile and generate .principles placements"
     echo "  /prime  — Activate principles before writing code"
-    echo "  /audit  — Review code with severity-categorized findings"
+    echo "  /audit  — Review code with severity-categorized findings; use /audit <spec> on <target> to force specific principles"
 }
 
 install_copilot() {

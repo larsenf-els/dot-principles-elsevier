@@ -1,25 +1,37 @@
 ---
 name: audit
-description: Resolve the .principles hierarchy, load principle content, review code, and group findings by severity (Critical/High/Medium/Low). Use this skill when asked to audit or review code against principles.
+description: Resolve the .principles hierarchy, load principle content, review code, and group findings by severity (Critical/High/Medium/Low). Supports explicit principle override with --with / @group / on syntax. Use this skill when asked to audit or review code against principles.
 license: MIT
 ---
 
 # Audit
 
-Review a file, directory, or inline code against its activated principles in seven phases.
+Review a file, directory, or inline code against its activated principles in seven phases. Optionally force specific principles using explicit spec syntax.
 
-## Phase 1 — Resolve Input and Detect Artifact Type
+## Phase 1 — Parse Arguments, Resolve Input, and Detect Artifact Type
 
-### 1.1 — Resolve Input
+### 1.1 — Parse Arguments for Explicit Principle Spec
 
-Determine what to review from `$ARGUMENTS`:
+Check `$ARGUMENTS` for an explicit principle spec using this precedence:
 
-- Empty → respond "What would you like me to review?" and stop.
+1. **`--with <spec>`** — if `$ARGUMENTS` contains ` --with `, extract everything after `--with ` as the spec; the text before `--with ` is the target input.
+2. **`@<group>` token** — if `$ARGUMENTS` contains one or more `@`-prefixed tokens, extract all `@`-prefixed tokens as the spec (space-joined); the remaining tokens form the target input.
+3. **`<spec> on <target>`** — if `$ARGUMENTS` contains ` on ` (space–on–space), split on the first occurrence: left side is the spec, right side is the target input.
+4. **No spec** — treat all of `$ARGUMENTS` as the target input (normal mode).
+
+If an explicit spec was detected, record **principle-spec** and set **explicit-mode: true**. Otherwise set **explicit-mode: false**.
+
+### 1.2 — Resolve Input
+
+Determine what to review from the target input resolved in 1.1:
+
+- Empty (explicit-mode false) → respond "What would you like me to review?" and stop.
+- Empty (explicit-mode true) → use the current working directory as target.
 - File path → read that file.
 - Directory path → recursively glob all reviewable files; exclude binaries, lock files, `node_modules`, `vendor`, `dist`, `build`, `.git`, and build artifacts.
 - Inline code or text → use it directly.
 
-### 1.2 — Detect Artifact Type
+### 1.3 — Detect Artifact Type
 
 For the target file(s), detect the artifact type by reading `{{PRINCIPLES_DIRECTORY}}/layers/artifact-types.yaml` and matching against its type definitions. Match by file extension, filename, or path pattern in precedence order (infra before config for ambiguous YAML).
 
@@ -27,7 +39,18 @@ Record the detected type: **`code`** | **`docs`** | **`config`** | **`infra`** |
 
 If the target is a directory with mixed artifact types, note the mix; apply per-file type detection in Phase 6.
 
-## Phase 2 — Resolve .principles Hierarchy
+## Phase 2 — Resolve Principles
+
+**Explicit mode (explicit-mode true):**
+
+For each item in the `<principle-spec>` (split on commas and spaces, trim whitespace):
+1. **Group match**: look for `{{PRINCIPLES_DIRECTORY}}/groups/<item-lowercase>.yaml`. If found, read it and expand its `principles` list into the active set; recursively process any `includes` (abort on cycles).
+2. **Principle ID match**: if no group file matched, add the item directly to the active set (case-insensitive).
+3. **No match**: report "Unknown principle or group: \<item\>. Check available groups in `{{PRINCIPLES_DIRECTORY}}/groups/`." and stop.
+
+Record source as: `explicit: <principle-spec>`. Skip Phase 3 and proceed to Phase 4.
+
+**Normal mode (explicit-mode false):**
 
 Walk up from the target path to the git repo root (`.git/`) or max 10 levels, collecting every `.principles` file. Order: root → target.
 
@@ -74,7 +97,7 @@ Read `{{PRINCIPLES_DIRECTORY}}/layers/<detected-type>/layer-1-universal.md`. Add
 
 ## Phase 3 — Dynamic Detection (fallback)
 
-**Only if Phase 2 found no `.principles` files.**
+**Only if explicit-mode is false AND Phase 2 found no `.principles` files.**
 
 ### Layer 1 — Seed
 
@@ -203,6 +226,7 @@ For each violation found, record: principle ID, severity (Critical/High/Medium/L
 - `file`: absolute path, forward slashes; `""` if unavailable
 - `line`: integer; `0` if unavailable
 - `findings`: `[]` if no issues found
+- `principle_source`: `.principles hierarchy (N files)` | `dynamic detection (<type> stack)` | `explicit: <spec>`
 
 **Step 2.** Output a compact text report grouped by severity. Use this exact template:
 

@@ -214,9 +214,10 @@ Local installations write only into `<dir>/.claude/commands/` (or `.github/`, `.
 Open your AI tool and run the commands:
 
 ```
-/scout     → detect project profile and create .principles files
-/prime     → activate principles before writing code
-/audit     → review code with severity-categorized findings
+/scout              → detect project profile and create .principles files
+/prime              → activate principles before writing code
+/audit              → review code with severity-categorized findings
+/audit DDD on src/  → force specific principles, ignoring .principles files
 ```
 
 > **Copilot users:** `/scout`, `/prime`, and `/audit` require a **local** installation in your project (`.github/prompts/` or `.github/skills/`). The global installation alone is not enough. Run `install.sh copilot <your-project>` first — see [Section 3](#3-installation-scopes) above.
