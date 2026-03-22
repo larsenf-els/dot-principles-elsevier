@@ -15,6 +15,16 @@ Each entry: name, source, rejection date, reason, and which existing principle(s
 
 ## Rejected entries
 
+### Pipeline: Artifact Immutability
+- **Source:** Humble & Farley, *Continuous Delivery*, Ch. 5 (ISBN 978-0-321-60191-9)
+- **Rejected:** 2026-03-22
+- **Reason:** Directly covered by CD-BUILD-ONCE-DEPLOY-MANY, which states "compile and package the artifact exactly once; promote that same immutable artifact through every environment." The violations and detection guidance are identical.
+
+### Pipeline: Pin Action/Plugin Versions
+- **Source:** OpenSSF SLSA v1.0, OWASP CI/CD Security Cheat Sheet
+- **Rejected:** 2026-03-22
+- **Reason:** Covered by SEC-ARCH-SUPPLY-CHAIN-SECURITY, which explicitly lists "Third-party CI actions referenced by a floating branch or tag rather than a pinned commit SHA" as a violation and includes inspection patterns for GitHub Actions pinned to mutable refs and Docker images pinned by tag instead of digest.
+
 ### Separation of Concerns
 - **Source:** Dijkstra, "On the role of scientific thought" (1974), EWD 447
 - **Rejected:** 2026-03-22

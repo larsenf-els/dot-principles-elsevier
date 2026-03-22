@@ -6,14 +6,14 @@ Gap analysis performed 2026-03-22. Criteria: established published source, code-
 
 ## Tier 1 — High-value gaps
 
-### 1. Pipeline namespace is skeletal (2 principles)
+### 1. ~~Pipeline namespace is skeletal (2 principles)~~ DONE
 
-`pipeline/` has only `minimal-permissions` and `no-secrets-in-logs`. Missing practices from *Continuous Delivery* (Humble & Farley, ISBN 978-0321601919):
+`pipeline/` expanded from 2 to 6 principles. Added `reproducible-builds`, `environment-isolation`, `fail-fast-pipeline` (layer 1), and `deployment-gates` (layer 2). Layer files, context files, and inspect patterns updated. `artifact-immutability` and `pin-action-versions` rejected — see [REJECTED.md](REJECTED.md).
 
-- [ ] `pipeline/reproducible-builds` — Deterministic build outputs; same source + deps = same artifact. Auditable: lockfile presence, pinned tool versions, no `latest` tags in build steps.
-- [ ] `pipeline/artifact-immutability` — Build once, promote the same artifact across environments. Auditable: re-build patterns vs. artifact-reference patterns in pipeline definitions.
-- [ ] `pipeline/environment-isolation` — Pipeline stages must not share mutable state or credentials across environments. Auditable: shared env vars, global caches between stages.
-- [ ] `pipeline/fail-fast-pipeline` — Pipeline should abort on first meaningful failure rather than continuing downstream stages. Auditable: `continue-on-error`, `allow_failure` patterns.
+- [x] `pipeline/reproducible-builds`
+- [x] `pipeline/environment-isolation`
+- [x] `pipeline/fail-fast-pipeline`
+- [x] `pipeline/deployment-gates` (added — explicit approval gates for production deployments)
 
 ### 2. Saltzer & Schroeder missing security design principles
 

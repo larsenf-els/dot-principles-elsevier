@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **4 new pipeline principles** in `pipeline` namespace — `PIPELINE-REPRODUCIBLE-BUILDS` (layer 1, with inspection), `PIPELINE-ENVIRONMENT-ISOLATION` (layer 1, with inspection), `PIPELINE-FAIL-FAST-PIPELINE` (layer 1, with inspection), `PIPELINE-DEPLOYMENT-GATES` (layer 2, with inspection). Pipeline namespace expanded from 2 to 6 principles. Sources: Humble & Farley *Continuous Delivery* (ISBN 978-0-321-60191-9), OpenSSF SLSA v1.0, Reproducible Builds Project, OWASP CI/CD Security Cheat Sheet, Forsgren et al. *Accelerate* (ISBN 978-1-942788-33-1).
+- **Updated pipeline layer files** — `layers/pipeline/layer-1-universal.md` adds 3 new layer-1 principles; `layers/pipeline/layer-2-contexts.yaml` adds `PIPELINE-DEPLOYMENT-GATES` to deploy context.
+- **New `.context-inspect.md` for pipeline** — machine-executable pre-scan patterns for all 6 pipeline principles.
+- **Updated pipeline context files** — `.context-audit.md` and `.context-prime.md` now cover all 6 pipeline principles.
+- **`REJECTED.md`** — new file documenting considered-but-rejected principles with rationale; prevents re-evaluation of the same candidates.
 - **6 new configuration principles** in `config` namespace — `CONFIG-SCHEMA-FIRST`, `CONFIG-EXPLICIT-OVER-CONVENTIONAL`, `CONFIG-ENVIRONMENT-PARITY`, `CONFIG-EXPLICIT-DEFAULTS`, `CONFIG-CHANGE-TRACEABILITY` (layer 2, with contexts), `CONFIG-MINIMAL-SURFACE` (layer 2, with inspection). Sources: JSON Schema specification, Pydantic Settings docs, Spring Boot Reference, 12factor.net Factors III and VII, Humble & Farley *Continuous Delivery*, Beyer et al. *Site Reliability Engineering*, Weaveworks GitOps, OWASP A05:2021, Nygard *Release It!*, Saltzer & Schroeder (Economy of Mechanism), Hunt & Thomas *The Pragmatic Programmer*.
 - **Updated `config` context files** — `.context-audit.md` and `.context-prime.md` now cover all 8 config principles (2 existing + 6 new).
 - **Updated `layers/config/layer-1-universal.md`** — 4 new layer-1 principles added (`CONFIG-SCHEMA-FIRST`, `CONFIG-EXPLICIT-OVER-CONVENTIONAL`, `CONFIG-ENVIRONMENT-PARITY`, `CONFIG-EXPLICIT-DEFAULTS`).
