@@ -1,11 +1,5 @@
 # 📋 TODO — Principle gaps to fill
 
-## ⚙️ Configuration file principles
-New namespace: `config-principles` (to populate the `config` group more fully)
-
-- [ ] Schema-first configuration — every config file has a declared schema; invalid configuration is rejected at load time, not discovered at runtime
-- [ ] Explicit over conventional — prefer named, explicit configuration keys over magic conventions that require knowing the framework defaults
-
 ## 📝 Documentation principles
 New namespace: `docs-principles` (to populate the `docs` group more fully)
 

@@ -1636,3 +1636,55 @@ CD-BUILD-ONCE-DEPLOY-MANY:
   layer: 1
   categories: [devops, continuous-delivery, deployment, reliability]
   applies_to: [all]
+
+# =============================================================================
+# CONFIG
+# =============================================================================
+
+CONFIG-NO-HARDCODED-SECRETS:
+  title: "Never hardcode secrets in configuration files"
+  layer: 1
+  categories: [security, configuration]
+  applies_to: [config]
+
+CONFIG-SCHEMA-VALIDATION:
+  title: "Validate configuration against a schema at startup"
+  layer: 1
+  categories: [reliability, configuration]
+  applies_to: [config]
+
+CONFIG-SCHEMA-FIRST:
+  title: "Declare a schema for every configuration file"
+  layer: 1
+  categories: [configuration, reliability, tooling]
+  applies_to: [config]
+
+CONFIG-EXPLICIT-OVER-CONVENTIONAL:
+  title: "Prefer explicit configuration keys over magic framework conventions"
+  layer: 1
+  categories: [configuration, maintainability, readability]
+  applies_to: [config]
+
+CONFIG-ENVIRONMENT-PARITY:
+  title: "Keep config structure identical across environments; only values differ"
+  layer: 1
+  categories: [configuration, reliability, devops]
+  applies_to: [config]
+
+CONFIG-EXPLICIT-DEFAULTS:
+  title: "Declare and document defaults for every optional configuration key"
+  layer: 1
+  categories: [configuration, reliability, maintainability]
+  applies_to: [config]
+
+CONFIG-CHANGE-TRACEABILITY:
+  title: "All configuration changes must be versioned, reviewed, and auditable"
+  layer: 2
+  categories: [configuration, auditability, security, devops]
+  applies_to: [config]
+
+CONFIG-MINIMAL-SURFACE:
+  title: "Expose only the configuration the application reads; remove unused keys"
+  layer: 2
+  categories: [configuration, security, maintainability]
+  applies_to: [config]

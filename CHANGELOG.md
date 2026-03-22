@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **6 new configuration principles** in `config` namespace — `CONFIG-SCHEMA-FIRST`, `CONFIG-EXPLICIT-OVER-CONVENTIONAL`, `CONFIG-ENVIRONMENT-PARITY`, `CONFIG-EXPLICIT-DEFAULTS`, `CONFIG-CHANGE-TRACEABILITY` (layer 2, with contexts), `CONFIG-MINIMAL-SURFACE` (layer 2, with inspection). Sources: JSON Schema specification, Pydantic Settings docs, Spring Boot Reference, 12factor.net Factors III and VII, Humble & Farley *Continuous Delivery*, Beyer et al. *Site Reliability Engineering*, Weaveworks GitOps, OWASP A05:2021, Nygard *Release It!*, Saltzer & Schroeder (Economy of Mechanism), Hunt & Thomas *The Pragmatic Programmer*.
+- **Updated `config` context files** — `.context-audit.md` and `.context-prime.md` now cover all 8 config principles (2 existing + 6 new).
+- **Updated `layers/config/layer-1-universal.md`** — 4 new layer-1 principles added (`CONFIG-SCHEMA-FIRST`, `CONFIG-EXPLICIT-OVER-CONVENTIONAL`, `CONFIG-ENVIRONMENT-PARITY`, `CONFIG-EXPLICIT-DEFAULTS`).
+- **Updated `layers/config/layer-2-contexts.yaml`** — 3 new context triggers (`secrets-management` extended, `version-controlled-config`, `large-config`) activating `CONFIG-CHANGE-TRACEABILITY` and `CONFIG-MINIMAL-SURFACE`.
+- **Updated `groups/config.yaml`** — all 6 new principles added to the `@config` group (9 config-specific principles total).
 - **8 new API design principles** in `code/api` namespace — `CODE-API-RATE-LIMITING` (with inspection), `CODE-API-PROBLEM-DETAILS`, `CODE-API-PAGINATION` (with inspection), `CODE-API-HTTP-CACHING` (with inspection), `CODE-API-CONDITIONAL-REQUESTS` (with inspection), `CODE-API-CONTENT-NEGOTIATION` (with inspection), `CODE-API-API-VERSIONING` (with inspection), `CODE-API-GRPC-PROTOBUF` (with inspection). Sources: RFC 6585, RFC 7807/9457, RFC 5988, RFC 9111, RFC 7232, RFC 7231/9110, RFC 8594, Richardson & Ruby *RESTful Web Services*, Indrasiri & Kuruppu *gRPC: Up and Running*, Google API Design Guide.
 - **Context files for `code/api`** — `.context-audit.md`, `.context-prime.md`, and `.context-inspect.md` created, covering all 13 API principles (5 existing + 8 new).
 
