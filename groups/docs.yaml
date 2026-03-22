@@ -2,6 +2,14 @@ name: docs
 description: "Documentation files — READMEs, architecture docs, how-to guides, tutorials, and API documentation"
 
 principles:
+  - DOC-AS-CODE
+  - DOC-CLOSE-TO-CODE
+  - DOC-UNIQUE
+  - DOC-TASK-ORIENTED
+  - DOC-SCANNABLE
+  - DOC-OBJECTIVE
+  - DOC-SELF-CONTAINED
+  - DOC-ADDRESSABLE
   - DOC-PURPOSE
   - DOC-MINIMAL
   - DOC-AUDIENCE
