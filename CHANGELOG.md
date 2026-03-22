@@ -12,6 +12,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **4 new container / Dockerfile principles** in `infra` namespace — `INFRA-NON-ROOT-CONTAINER` (layer 1, with inspection), `INFRA-PIN-BASE-IMAGES` (layer 1, with inspection), `INFRA-MINIMIZE-IMAGE-LAYERS` (layer 1, with inspection), `INFRA-NO-SECRETS-IN-IMAGE` (layer 1, with inspection). Sources: CIS Docker Benchmark v1.6.0 (Sections 4.1, 4.10, 5.1), OWASP Docker Security Cheat Sheet, Docker official Dockerfile best practices, OpenSSF SLSA v1.0, Google Distroless container images.
+- **New `.context-inspect.md` for infra** — machine-executable pre-scan patterns for all 4 new container principles (7 grep patterns total).
+- **Updated `infra` context files** — `.context-audit.md` and `.context-prime.md` now include all 4 new container principles.
+- **Updated `layers/infra/layer-2-contexts.yaml`** — `containers` context now activates all 4 new principles in addition to the 2 existing entries.
+- **Updated `groups/security-focused.yaml`** — `INFRA-NON-ROOT-CONTAINER`, `INFRA-PIN-BASE-IMAGES`, and `INFRA-NO-SECRETS-IN-IMAGE` added (43 security-focused principles total).
+
 - **5 new Saltzer & Schroeder security architecture principles** in `sec-arch` namespace — `SEC-ARCH-ECONOMY-OF-MECHANISM` (with inspection), `SEC-ARCH-SEPARATION-OF-PRIVILEGE`, `SEC-ARCH-LEAST-COMMON-MECHANISM` (with inspection), `SEC-ARCH-PSYCHOLOGICAL-ACCEPTABILITY` (`Audit-scope: limited`), `SEC-ARCH-OPEN-DESIGN` (with inspection). Completes all 8 Saltzer & Schroeder (1975) design principles in the catalog (3 were already covered: `CODE-SEC-COMPLETE-MEDIATION`, `CODE-SEC-FAIL-SAFE-DEFAULTS`, `INFRA-LEAST-PRIVILEGE`). Source: Saltzer & Schroeder, "The Protection of Information in Computer Systems", *Proceedings of the IEEE* 63(9), 1975, DOI 10.1109/PROC.1975.9939.
 - **Updated `sec-arch` context files** — `.context-audit.md` and `.context-prime.md` now cover all 8 sec-arch principles (3 existing + 5 new).
 - **New `.context-inspect.md` for sec-arch** — machine-executable pre-scan patterns for 4 sec-arch principles with grep-able violations (`supply-chain-security`, `economy-of-mechanism`, `least-common-mechanism`, `open-design`).

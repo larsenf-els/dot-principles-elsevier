@@ -33,14 +33,14 @@ Gap analysis performed 2026-03-22. Criteria: established published source, code-
 - [x] `schema/no-polymorphic-blobs` (with inspection)
 - [x] `schema/enum-evolution` (with inspection)
 
-### 4. Container / Dockerfile best practices
+### 4. ~~Container / Dockerfile best practices~~ DONE
 
-No dedicated container principles exist. Infra layer 2 activates generic principles for Dockerfiles but misses container-specific hygiene. Source: CIS Docker Benchmark v1.6, Docker official best practices.
+`infra/` expanded with 4 container-specific principles. Sources: CIS Docker Benchmark v1.6.0, OWASP Docker Security Cheat Sheet, Docker official Dockerfile best practices, OpenSSF SLSA v1.0. Layer files, context files, inspect file, catalog, and `security-focused` group updated.
 
-- [ ] `infra/non-root-container` — Containers must not run as root. Auditable: missing `USER` directive in Dockerfile, `runAsRoot: true` in K8s manifests.
-- [ ] `infra/pin-base-images` — Base images must use digest or specific version tags, never `latest`. Auditable: `FROM image:latest`, `FROM image` (no tag).
-- [ ] `infra/minimize-image-layers` — Use multi-stage builds and combine RUN commands to minimize layers and image size. Auditable: multiple sequential `RUN apt-get`, no multi-stage pattern, `COPY . .` before dependency install.
-- [ ] `infra/no-secrets-in-image` — Secrets must not be baked into image layers via `COPY`, `ADD`, or `ENV`. Auditable: `COPY .env`, `ENV PASSWORD=`, `ARG` used for secrets without `--mount=type=secret`.
+- [x] `infra/non-root-container` — Containers must not run as root. Auditable: missing `USER` directive in Dockerfile, `runAsUser: 0` in K8s manifests.
+- [x] `infra/pin-base-images` — Base images must use digest or specific version tags, never `latest`. Auditable: `FROM image:latest`, `FROM image` (no tag).
+- [x] `infra/minimize-image-layers` — Use multi-stage builds and combine RUN commands to minimize layers and image size. Auditable: multiple sequential `RUN apt-get`, no multi-stage pattern, `COPY . .` before dependency install.
+- [x] `infra/no-secrets-in-image` — Secrets must not be baked into image layers via `COPY`, `ADD`, or `ENV`. Auditable: `COPY .env`, `ENV PASSWORD=`, `ARG` used for secrets without `--mount=type=secret`.
 
 ---
 

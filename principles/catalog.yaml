@@ -1301,6 +1301,30 @@ INFRA-HIGH-AVAILABILITY:
   categories: [infrastructure, availability, resilience, disaster-recovery]
   applies_to: [production-systems, cloud, internet-facing]
 
+INFRA-MINIMIZE-IMAGE-LAYERS:
+  title: "Minimize image size and layers with multi-stage builds and combined RUN instructions"
+  layer: 1
+  categories: [container, performance, infrastructure]
+  applies_to: [dockerfile, containerised]
+
+INFRA-NO-SECRETS-IN-IMAGE:
+  title: "Secrets must not be baked into image layers"
+  layer: 1
+  categories: [security, container, infrastructure]
+  applies_to: [dockerfile, containerised]
+
+INFRA-NON-ROOT-CONTAINER:
+  title: "Containers must not run as root"
+  layer: 1
+  categories: [security, container, infrastructure]
+  applies_to: [dockerfile, kubernetes, containerised]
+
+INFRA-PIN-BASE-IMAGES:
+  title: "Pin base images to a specific digest or version tag; never use latest"
+  layer: 1
+  categories: [security, container, supply-chain, infrastructure]
+  applies_to: [dockerfile, containerised]
+
 INFRA-IMMUTABLE-INFRASTRUCTURE:
   title: "Infrastructure is immutable: replace, never patch"
   layer: 2
