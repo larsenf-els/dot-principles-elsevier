@@ -963,6 +963,84 @@ CODE-SMELLS-SWITCH-STATEMENTS:
   categories: [code-smells, refactoring, maintainability]
   applies_to: [all]
 
+CODE-SMELLS-ALTERNATIVE-CLASSES:
+  title: "Alternative Classes with Different Interfaces"
+  layer: 2
+  categories: [code-smells, refactoring, maintainability]
+  applies_to: [all]
+
+CODE-SMELLS-DATA-CLASS:
+  title: "Data Class"
+  layer: 2
+  categories: [code-smells, refactoring, object-oriented]
+  applies_to: [all]
+
+CODE-SMELLS-DIVERGENT-CHANGE:
+  title: "Divergent Change"
+  layer: 2
+  categories: [code-smells, refactoring, maintainability]
+  applies_to: [all]
+
+CODE-SMELLS-GLOBAL-DATA:
+  title: "Global Data"
+  layer: 2
+  categories: [code-smells, refactoring, maintainability]
+  applies_to: [all]
+
+CODE-SMELLS-INSIDER-TRADING:
+  title: "Insider Trading"
+  layer: 2
+  categories: [code-smells, refactoring, object-oriented]
+  applies_to: [all]
+
+CODE-SMELLS-LAZY-ELEMENT:
+  title: "Lazy Element"
+  layer: 2
+  categories: [code-smells, refactoring, maintainability]
+  applies_to: [all]
+
+CODE-SMELLS-LONG-PARAMETER-LIST:
+  title: "Long Parameter List"
+  layer: 2
+  categories: [code-smells, refactoring, maintainability]
+  applies_to: [all]
+
+CODE-SMELLS-LOOPS:
+  title: "Loops"
+  layer: 2
+  categories: [code-smells, refactoring, readability]
+  applies_to: [all]
+
+CODE-SMELLS-MIDDLE-MAN:
+  title: "Middle Man"
+  layer: 2
+  categories: [code-smells, refactoring, object-oriented]
+  applies_to: [all]
+
+CODE-SMELLS-MUTABLE-DATA:
+  title: "Mutable Data"
+  layer: 2
+  categories: [code-smells, refactoring, reliability]
+  applies_to: [all]
+
+CODE-SMELLS-REFUSED-BEQUEST:
+  title: "Refused Bequest"
+  layer: 2
+  categories: [code-smells, refactoring, object-oriented]
+  applies_to: [all]
+
+CODE-SMELLS-SHOTGUN-SURGERY:
+  title: "Shotgun Surgery"
+  layer: 2
+  categories: [code-smells, refactoring, maintainability]
+  applies_to: [all]
+
+CODE-SMELLS-TEMPORARY-FIELD:
+  title: "Temporary Field"
+  layer: 2
+  categories: [code-smells, refactoring, object-oriented]
+  applies_to: [all]
+
 # =============================================================================
 # DDD
 # =============================================================================

@@ -46,12 +46,14 @@ Gap analysis performed 2026-03-22. Criteria: established published source, code-
 
 ## Tier 2 — Notable gaps
 
-### 5. Missing code smells (Fowler, *Refactoring* 2nd ed, ISBN 978-0134757599)
+### 5. ~~Missing code smells~~ DONE
 
-18 of 22 Fowler smells are covered. Missing:
+`code-smells/` expanded from 18 to 22 principles — all 22 Fowler 1st-edition smells now covered, plus 2 smells introduced in the 2nd edition. Source: Fowler, Martin. *Refactoring*, 2nd ed. (ISBN 978-0-13-475759-9). Context files, group, and catalog updated. 9 previously missing catalog entries also backfilled.
 
-- [ ] `code-smells/lazy-element` — A class, function, or module that does too little to justify its existence. Auditable: single-method classes, trivial wrapper functions, pass-through modules.
-- [ ] `code-smells/middle-man` — A class that delegates almost everything to another class. Auditable: classes where most methods just forward to a delegate.
+- [x] `code-smells/lazy-element` — A class, function, or module that does too little to justify its existence.
+- [x] `code-smells/middle-man` — A class that delegates almost everything to another class.
+- [x] `code-smells/mutable-data` — Data that can be changed from multiple places in hard-to-trace ways. (2nd ed addition)
+- [x] `code-smells/loops` — Imperative loops that should be replaced with pipeline operations. (2nd ed addition, `Audit-scope: limited`)
 
 ### 6. Missing EIP patterns (Hohpe & Woolf, ISBN 978-0321200686)
 

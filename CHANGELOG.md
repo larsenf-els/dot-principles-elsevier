@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **4 new code smell principles** completing all 22 Fowler *Refactoring* 1st-edition smells and adding the 2 smells introduced in the 2nd edition — `CODE-SMELLS-LAZY-ELEMENT` (layer 2), `CODE-SMELLS-MIDDLE-MAN` (layer 2), `CODE-SMELLS-MUTABLE-DATA` (layer 2), `CODE-SMELLS-LOOPS` (layer 2, `Audit-scope: limited`). `code-smells` namespace expanded from 18 to 22 principles. Source: Fowler, Martin. *Refactoring: Improving the Design of Existing Code*, 2nd ed. Addison-Wesley, 2018. ISBN 978-0-13-475759-9. Chapter 3.
+- **Updated `code-smells` context files** — `.context-audit.md` and `.context-prime.md` now cover all 22 code-smell principles.
+- **Updated `groups/code-smells.yaml`** — all 4 new principles added (22 total).
+- **Fixed missing code-smell catalog entries** — 9 existing code-smell principles (`ALTERNATIVE-CLASSES`, `DATA-CLASS`, `DIVERGENT-CHANGE`, `GLOBAL-DATA`, `INSIDER-TRADING`, `LONG-PARAMETER-LIST`, `REFUSED-BEQUEST`, `SHOTGUN-SURGERY`, `TEMPORARY-FIELD`) were present as files but had no `catalog.yaml` entries; added alongside the 4 new entries (22 code-smell entries total in catalog).
+
 - **4 new container / Dockerfile principles** in `infra` namespace — `INFRA-NON-ROOT-CONTAINER` (layer 1, with inspection), `INFRA-PIN-BASE-IMAGES` (layer 1, with inspection), `INFRA-MINIMIZE-IMAGE-LAYERS` (layer 1, with inspection), `INFRA-NO-SECRETS-IN-IMAGE` (layer 1, with inspection). Sources: CIS Docker Benchmark v1.6.0 (Sections 4.1, 4.10, 5.1), OWASP Docker Security Cheat Sheet, Docker official Dockerfile best practices, OpenSSF SLSA v1.0, Google Distroless container images.
 - **New `.context-inspect.md` for infra** — machine-executable pre-scan patterns for all 4 new container principles (7 grep patterns total).
 - **Updated `infra` context files** — `.context-audit.md` and `.context-prime.md` now include all 4 new container principles.
