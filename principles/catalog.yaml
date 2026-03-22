@@ -1,5 +1,5 @@
 # .principles — Consolidated Catalog
-# Generated from principle files. 253 principles across 17 namespaces.
+# Generated from principle files. 258 principles across 17 namespaces.
 # Each entry maps a current principle ID to lightweight metadata.
 # Full principle text lives in the principle markdown files under principles/.
 
@@ -1477,6 +1477,36 @@ SEC-ARCH-SUPPLY-CHAIN-SECURITY:
   title: "Verify provenance and integrity across the build chain"
   layer: 2
   categories: [security, architecture, devops]
+  applies_to: [all]
+
+SEC-ARCH-ECONOMY-OF-MECHANISM:
+  title: "Keep security mechanisms as simple as possible"
+  layer: 2
+  categories: [security, architecture, maintainability]
+  applies_to: [all]
+
+SEC-ARCH-SEPARATION-OF-PRIVILEGE:
+  title: "Require multiple independent conditions to grant access"
+  layer: 2
+  categories: [security, architecture, access-control]
+  applies_to: [all]
+
+SEC-ARCH-LEAST-COMMON-MECHANISM:
+  title: "Minimize shared mechanisms between users and components"
+  layer: 2
+  categories: [security, architecture, isolation]
+  applies_to: [all]
+
+SEC-ARCH-PSYCHOLOGICAL-ACCEPTABILITY:
+  title: "Security must not make the system harder to use correctly"
+  layer: 2
+  categories: [security, architecture, usability]
+  applies_to: [all]
+
+SEC-ARCH-OPEN-DESIGN:
+  title: "Security must not depend on secrecy of the mechanism"
+  layer: 2
+  categories: [security, architecture]
   applies_to: [all]
 
 # =============================================================================

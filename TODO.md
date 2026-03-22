@@ -15,15 +15,15 @@ Gap analysis performed 2026-03-22. Criteria: established published source, code-
 - [x] `pipeline/fail-fast-pipeline`
 - [x] `pipeline/deployment-gates` (added — explicit approval gates for production deployments)
 
-### 2. Saltzer & Schroeder missing security design principles
+### 2. ~~Saltzer & Schroeder missing security design principles~~ DONE
 
-`sec-arch/` has 3 of 8 from Saltzer & Schroeder (1975, DOI 10.1145/361011.361067). `code/sec/` covers complete-mediation and fail-safe-defaults. Still missing:
+`sec-arch/` now has all 8 Saltzer & Schroeder (1975) principles covered. `code/sec/` covers complete-mediation and fail-safe-defaults; `infra/` covers least-privilege. The remaining 5 added to `sec-arch/`. Layer files, context files, catalog, and `security-focused` group updated.
 
-- [ ] `sec-arch/economy-of-mechanism` — Keep security mechanisms as simple as possible. Auditable: overly complex auth/authz code, custom crypto, convoluted ACL logic.
-- [ ] `sec-arch/separation-of-privilege` — Require multiple independent conditions to grant access. Auditable: single-factor auth, single approval gates, lack of MFA enforcement in code.
-- [ ] `sec-arch/least-common-mechanism` — Minimize shared mechanisms between users/components to limit attack surface. Auditable: shared service accounts, global singletons for auth state.
-- [ ] `sec-arch/psychological-acceptability` — Security mechanisms must not make the system harder to use than without them, or users will bypass them. Audit-scope: limited — detectable via overly complex config, excessive permission prompts. Mark as `Audit-scope: limited`.
-- [ ] `sec-arch/open-design` — Security should not depend on secrecy of the mechanism. Auditable: hardcoded secrets as "security", security-through-obscurity patterns, obfuscation-as-protection.
+- [x] `sec-arch/economy-of-mechanism` (with inspection)
+- [x] `sec-arch/separation-of-privilege`
+- [x] `sec-arch/least-common-mechanism` (with inspection)
+- [x] `sec-arch/psychological-acceptability` (`Audit-scope: limited`)
+- [x] `sec-arch/open-design` (with inspection)
 
 ### 3. Schema namespace is skeletal (1 principle)
 
@@ -96,7 +96,7 @@ No accessibility principles exist. Source: W3C WCAG 2.1 (authoritative URL). Rel
 Even when a principle exists in the catalog, it may not activate for certain project profiles if no group includes it. Review these:
 
 - [ ] `microservices.yaml` — Check whether EIP principles, saga, bulkhead, and service-mesh patterns are included
-- [ ] `security-focused.yaml` — Should include new Saltzer & Schroeder principles once added
+- [x] `security-focused.yaml` — Saltzer & Schroeder principles added
 - [ ] Pipeline principles — No `pipeline.yaml` group exists; consider creating one
 - [ ] Container/infra principles — Review `infra`-related groups for container-specific inclusions
 - [ ] Schema principles — No `schema.yaml` group exists; the schema layer handles activation, but explicit group would help for `.principles` files targeting schema-heavy repos

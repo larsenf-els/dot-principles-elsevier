@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Added
 
+- **5 new Saltzer & Schroeder security architecture principles** in `sec-arch` namespace — `SEC-ARCH-ECONOMY-OF-MECHANISM` (with inspection), `SEC-ARCH-SEPARATION-OF-PRIVILEGE`, `SEC-ARCH-LEAST-COMMON-MECHANISM` (with inspection), `SEC-ARCH-PSYCHOLOGICAL-ACCEPTABILITY` (`Audit-scope: limited`), `SEC-ARCH-OPEN-DESIGN` (with inspection). Completes all 8 Saltzer & Schroeder (1975) design principles in the catalog (3 were already covered: `CODE-SEC-COMPLETE-MEDIATION`, `CODE-SEC-FAIL-SAFE-DEFAULTS`, `INFRA-LEAST-PRIVILEGE`). Source: Saltzer & Schroeder, "The Protection of Information in Computer Systems", *Proceedings of the IEEE* 63(9), 1975, DOI 10.1109/PROC.1975.9939.
+- **Updated `sec-arch` context files** — `.context-audit.md` and `.context-prime.md` now cover all 8 sec-arch principles (3 existing + 5 new).
+- **New `.context-inspect.md` for sec-arch** — machine-executable pre-scan patterns for 4 sec-arch principles with grep-able violations (`supply-chain-security`, `economy-of-mechanism`, `least-common-mechanism`, `open-design`).
+- **Updated `groups/security-focused.yaml`** — all 5 new principles added (40 security-focused principles total).
 - **4 new pipeline principles** in `pipeline` namespace — `PIPELINE-REPRODUCIBLE-BUILDS` (layer 1, with inspection), `PIPELINE-ENVIRONMENT-ISOLATION` (layer 1, with inspection), `PIPELINE-FAIL-FAST-PIPELINE` (layer 1, with inspection), `PIPELINE-DEPLOYMENT-GATES` (layer 2, with inspection). Pipeline namespace expanded from 2 to 6 principles. Sources: Humble & Farley *Continuous Delivery* (ISBN 978-0-321-60191-9), OpenSSF SLSA v1.0, Reproducible Builds Project, OWASP CI/CD Security Cheat Sheet, Forsgren et al. *Accelerate* (ISBN 978-1-942788-33-1).
 - **Updated pipeline layer files** — `layers/pipeline/layer-1-universal.md` adds 3 new layer-1 principles; `layers/pipeline/layer-2-contexts.yaml` adds `PIPELINE-DEPLOYMENT-GATES` to deploy context.
 - **New `.context-inspect.md` for pipeline** — machine-executable pre-scan patterns for all 6 pipeline principles.
