@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ## [Unreleased]
 
+### Added
+
+- **New `@docs-as-code` group** — focused profile for repos where documentation is versioned alongside code and built in CI (MkDocs, Docusaurus, Antora). Contains 7 principles: `DOC-AS-CODE`, `DOC-CLOSE-TO-CODE`, `DOC-UNIQUE`, `DOC-ADDRESSABLE`, `ARCH-DECISION-RECORDS`, `CODE-CS-DRY`, `PIPELINE-REPRODUCIBLE-BUILDS`. Distinct from the full `@docs` group, which covers writing-quality principles.
+
 ---
 
 ## [v0.4.0] — 2026-03-22
