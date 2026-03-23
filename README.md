@@ -278,7 +278,7 @@ Because these are AI commands — not CLI tools — you speak to them in natural
 
 - 🔭 **`/scout`** — Analyzes your project, detects language/framework/domain, and creates `.principles` files.
 - ⚡ **`/prime`** — Resolves your `.principles` hierarchy, reads full principle guidance, prepares your coding frame.
-- 🔎 **`/audit`** — Resolves your `.principles` hierarchy, reads principle content, reviews code, and groups findings by severity (Critical / High / Medium / Low).
+- 🔎 **`/audit`** — Resolves your `.principles` hierarchy, reads principle content, reviews code, and groups findings by severity (Critical / High / Medium / Low). Supports explicit principle override to force a specific principle set regardless of `.principles` files.
 
 The AI figures out the scope from context:
 
@@ -287,6 +287,12 @@ The AI figures out the scope from context:
 /audit the payment module       → reviews the payments subtree
 /audit                          → you decide the scope in conversation
 /prime                          → loads principles for whatever you're about to work on
+
+# Force specific principles (ignores .principles files):
+/audit DDD on src/orders        → review src/orders against DDD principles
+/audit src/orders --with ddd    → same, flag syntax
+/audit @ddd src/orders          → same, group-prefix syntax
+/audit clean-arch, solid on src → multiple groups, comma-separated
 ```
 
 ## 🚀 Quick start
@@ -308,6 +314,7 @@ git clone https://github.com/dot-principles/principles.git
 #   /prime                      → before writing code
 #   /audit current changes      → review only what changed since last commit
 #   /audit directory            → review whatever you describe in conversation
+#   /audit DDD on src/          → force DDD principles regardless of .principles files
 ```
 
 **GitHub Copilot (VS Code / JetBrains):** The repo ships with `.github/prompts/` already populated — `/scout`, `/prime`, and `/audit` are available in Copilot Chat as soon as you clone. To install into your own project:

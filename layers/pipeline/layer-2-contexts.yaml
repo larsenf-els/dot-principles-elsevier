@@ -36,6 +36,7 @@ deploy:
     - CD-BLUE-GREEN-DEPLOYMENT
     - CODE-RL-IDEMPOTENCY
     - CD-PIPELINE-AS-CODE
+    - PIPELINE-DEPLOYMENT-GATES
 
 release:
   description: "Version tagging, publishing, and changelog generation"

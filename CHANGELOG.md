@@ -10,6 +10,58 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ## [Unreleased]
 
+### Added
+
+- **New `@docs-as-code` group** — focused profile for repos where documentation is versioned alongside code and built in CI (MkDocs, Docusaurus, Antora). Contains 7 principles: `DOC-AS-CODE`, `DOC-CLOSE-TO-CODE`, `DOC-UNIQUE`, `DOC-ADDRESSABLE`, `ARCH-DECISION-RECORDS`, `CODE-CS-DRY`, `PIPELINE-REPRODUCIBLE-BUILDS`. Distinct from the full `@docs` group, which covers writing-quality principles.
+
+---
+
+## [v0.4.0] — 2026-03-22
+
+### Added
+
+- **7 new EIP principles** (`eip` namespace, 5 → 12) — `EIP-AGGREGATOR`, `EIP-SPLITTER`, `EIP-WIRE-TAP`, `EIP-IDEMPOTENT-CONSUMER`, `EIP-MESSAGE-TRANSLATOR`, `EIP-CONTENT-ENRICHER`, `EIP-RETURN-ADDRESS` (all layer 2). Source: Hohpe & Woolf, *Enterprise Integration Patterns*, ISBN 978-0321200686.
+- **4 new code smell principles** (`code-smells` namespace, 18 → 22) — `CODE-SMELLS-LAZY-ELEMENT`, `CODE-SMELLS-MIDDLE-MAN`, `CODE-SMELLS-MUTABLE-DATA`, `CODE-SMELLS-LOOPS` (`Audit-scope: limited`). Completes all 22 Fowler 1st-edition smells plus 2 additions from the 2nd edition. Source: Fowler, *Refactoring* 2nd ed., ISBN 978-0-13-475759-9.
+- **4 new container / Dockerfile principles** (`infra` namespace) — `INFRA-NON-ROOT-CONTAINER`, `INFRA-PIN-BASE-IMAGES`, `INFRA-MINIMIZE-IMAGE-LAYERS`, `INFRA-NO-SECRETS-IN-IMAGE` (all layer 1, with inspection). Added to `security-focused` group and `layers/infra/layer-2-contexts.yaml` containers context. Sources: CIS Docker Benchmark v1.6.0, OWASP Docker Security Cheat Sheet, Docker Dockerfile best practices, OpenSSF SLSA v1.0.
+- **5 new security architecture principles** (`sec-arch` namespace) — `SEC-ARCH-ECONOMY-OF-MECHANISM`, `SEC-ARCH-SEPARATION-OF-PRIVILEGE`, `SEC-ARCH-LEAST-COMMON-MECHANISM`, `SEC-ARCH-OPEN-DESIGN` (all with inspection), `SEC-ARCH-PSYCHOLOGICAL-ACCEPTABILITY` (`Audit-scope: limited`). Completes all 8 Saltzer & Schroeder (1975) principles. Source: DOI 10.1109/PROC.1975.9939.
+- **3 new schema design principles** (`schema` namespace, 1 → 4) — `SCHEMA-FIELD-OPTIONALITY`, `SCHEMA-NO-POLYMORPHIC-BLOBS`, `SCHEMA-ENUM-EVOLUTION` (all layer 1, with inspection). New `avro` context in `layers/schema/layer-2-contexts.yaml`. Sources: proto3 guide, Avro spec 1.11.1, Kleppmann ISBN 978-1-449-37332-0.
+- **4 new pipeline principles** (`pipeline` namespace, 2 → 6) — `PIPELINE-REPRODUCIBLE-BUILDS`, `PIPELINE-ENVIRONMENT-ISOLATION`, `PIPELINE-FAIL-FAST-PIPELINE` (layer 1), `PIPELINE-DEPLOYMENT-GATES` (layer 2); all with inspection. Sources: Humble & Farley ISBN 978-0-321-60191-9, OpenSSF SLSA v1.0, Forsgren et al. ISBN 978-1-942788-33-1.
+- **6 new configuration principles** (`config` namespace, 2 → 8) — `CONFIG-SCHEMA-FIRST`, `CONFIG-EXPLICIT-OVER-CONVENTIONAL`, `CONFIG-ENVIRONMENT-PARITY`, `CONFIG-EXPLICIT-DEFAULTS` (layer 1), `CONFIG-CHANGE-TRACEABILITY`, `CONFIG-MINIMAL-SURFACE` (layer 2, with inspection). Layer and context files updated.
+- **8 new documentation principles** (`docs` namespace) — `DOC-AS-CODE`, `DOC-CLOSE-TO-CODE`, `DOC-UNIQUE`, `DOC-TASK-ORIENTED`, `DOC-SCANNABLE`, `DOC-OBJECTIVE`, `DOC-SELF-CONTAINED`, `DOC-ADDRESSABLE`. Sources: Gentle ISBN 978-1365418730, Martraire ISBN 978-0134689326, Baker ISBN 978-1937434281, NN/G 1997, and others.
+- **8 new API design principles** (`code/api` namespace) — `CODE-API-RATE-LIMITING`, `CODE-API-PROBLEM-DETAILS`, `CODE-API-PAGINATION`, `CODE-API-HTTP-CACHING`, `CODE-API-CONDITIONAL-REQUESTS`, `CODE-API-CONTENT-NEGOTIATION`, `CODE-API-API-VERSIONING`, `CODE-API-GRPC-PROTOBUF` (most with inspection). Sources: RFC 6585, 7807/9457, 9111, 7232, 7231/9110, 8594; Richardson & Ruby; Google API Design Guide.
+- **`REJECTED.md`** — new file logging considered-but-rejected candidates with rationale.
+- **New `.context-inspect.md` files** for `infra`, `pipeline`, `schema`, and `sec-arch` namespaces; `code/api` inspect file created.
+- **Context and layer files updated** across all 9 affected namespaces (`eip`, `code-smells`, `infra`, `sec-arch`, `schema`, `pipeline`, `config`, `docs`, `code/api`).
+
+### Fixed
+
+- **Missing catalog entries backfilled** — `eip` (5 principles), `code-smells` (9 principles), and `SCHEMA-SELF-DESCRIBING` were present as files but absent from `catalog.yaml`; all added.
+
+---
+
+## [v0.3.2] — 2026-03-22
+
+### Changed
+
+- **`/audit` explicit principle override** — `/audit` now accepts an explicit principle spec to force a specific principle set, bypassing `.principles` files and dynamic detection entirely. Three equivalent syntaxes are supported:
+  - `<spec> on <target>` — natural language: `/audit DDD on src/orders`
+  - `<target> --with <spec>` — flag syntax: `/audit src/orders --with DDD`
+  - `@<group> <target>` — group-prefix syntax: `/audit @ddd src/orders`
+  - Multiple groups supported comma-separated: `/audit clean-arch, solid on src/`
+  - `principle_source` in `audit-output.json` reports `explicit: <spec>` when override is active.
+
+---
+
+## [v0.3.1] — 2026-03-19
+
+### Added
+
+- **Version metadata in command frontmatter** — `/audit`, `/prime`, and `/scout` source files now carry `version`, `description`, `argument-hint`, and `authors` fields in YAML frontmatter, stamped at install time from `VERSION`.
+
+### Fixed
+
+- **Copilot CLI global skills management** — `install.sh` and `uninstall.sh` now correctly create, update, and remove `~/.copilot/skills/<name>/SKILL.md` entries for global Copilot CLI installations.
+
 ---
 
 ## [v0.3.0] — 2026-03-18
@@ -71,6 +123,9 @@ See [TODO.md](TODO.md) for the roadmap.
 
 ---
 
+[v0.4.0]: https://github.com/dot-principles/dot-principles/releases/tag/v0.4.0
+[v0.3.2]: https://github.com/dot-principles/dot-principles/releases/tag/v0.3.2
+[v0.3.1]: https://github.com/dot-principles/dot-principles/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/dot-principles/principles/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/dot-principles/principles/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/dot-principles/principles/releases/tag/v0.1.0

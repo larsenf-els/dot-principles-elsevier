@@ -502,15 +502,15 @@ Activates principles before writing code. Run it before starting work on a task.
 
 ### 🔎 `/audit`
 
-Reviews code against activated principles. Outputs findings grouped by severity.
+Reviews code against activated principles. Outputs findings grouped by severity. Supports explicit principle override via `--with <spec>`, `@<group>`, or `<spec> on <target>` syntax to force a specific principle set regardless of `.principles` files.
 
 **Phases:**
 
 | Phase | Name                          | Description                                                                                    |
 |-------|-------------------------------|------------------------------------------------------------------------------------------------|
-| 1     | Resolve Input                 | Determines what code to review (file, directory, inline)                                       |
-| 2     | Resolve .principles Hierarchy | Same walk algorithm as prime; supports `:max_principles` directive                             |
-| 3     | Dynamic Detection (fallback)  | Only if no `.principles` files found                                                           |
+| 1     | Parse Arguments               | Detects explicit spec (`--with`, `@group`, or `on` syntax); resolves target and artifact type  |
+| 2     | Resolve Principles            | Explicit mode: resolves spec directly; normal mode: walks `.principles` hierarchy              |
+| 3     | Dynamic Detection (fallback)  | Only if explicit-mode is false and no `.principles` files found                                |
 | 4     | Load Principle Content        | Reads one `.context-audit.md` per namespace (pre-compiled); filters to active IDs             |
 | 5     | Pre-Scan                      | Reads `.context-inspect.md` per namespace; runs bash commands to build pre-scan manifest       |
 | 6     | Review                        | Guided review (hits) + semantic-only review + opportunistic findings                           |
